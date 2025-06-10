@@ -1,2 +1,3 @@
 # WebShark
-WebShark is a Online application designed for users
+
+WebShark is a Online application designed for users to extract web data easily of literally anything they want.
