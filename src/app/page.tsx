@@ -1,11 +1,5 @@
 /*Web-Shark Landing Page*/
 'use client';
-import { FaDatabase, FaUser, FaTools, FaSearch,FaMagic } from 'react-icons/fa';
-import { MdSpeed } from "react-icons/md";
-import { MdSecurity } from "react-icons/md";
-import { IoAnalytics } from "react-icons/io5";
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import Button from '../components/Button';
 
 export default function Home() {
