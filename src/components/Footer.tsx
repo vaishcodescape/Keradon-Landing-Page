@@ -14,7 +14,7 @@ export default function Footer() {
               Dive deep into data with our powerful analytics and visualization tools.
             </p>
             <div className="flex space-x-4">
-              <a href="https://github.com/vaishcodescape/keradon.git" className="text-white/60 hover:text-white transition-colors">
+              <a href="https://github.com/vaishcodescape/Keradon-landing-page.git" className="text-white/60 hover:text-white transition-colors">
                 <FaGithub className="h-5 w-5" />
               </a>
               <a href="#" className="text-white/60 hover:text-white transition-colors">
