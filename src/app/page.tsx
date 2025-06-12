@@ -75,7 +75,7 @@ export default function Home() {
             Make Your Next Data Project Today
           </h1>
           <p className="text-2xl text-gray-200 text-center mb-10 animate-fade-in animation-delay-200 font-medium">
-            Try Keradon.AI for free.
+            Try Keradon for free.
           </p>
           <button className="bg-white text-black px-12 py-4 rounded-full font-semibold text-lg mb-4 hover:bg-gray-100 transition animate-pulse-glow shadow-xl focus:outline-none focus:ring-4 focus:ring-white/30">
             Download
