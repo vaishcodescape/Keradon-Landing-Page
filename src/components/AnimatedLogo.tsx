@@ -54,7 +54,8 @@ export default function AnimatedLogo({ onPositionChange }: AnimatedLogoProps) {
                         alt="Keradon Logo"
                         width={128}
                         height={128}
-                        className="object-contain brightness-0 invert w-full h-full"
+                        className="object-contain brightness-0 invert"
+                        style={{ width: 'auto', height: 'auto' }}
                         priority
                     />
                 </motion.div>
