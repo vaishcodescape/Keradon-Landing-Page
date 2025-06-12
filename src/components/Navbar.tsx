@@ -9,13 +9,13 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const resources = [
-    { name: 'Documentation', href: '#' },
-    { name: 'API Reference', href: '#' },
+    { name: 'Documentation', Link: '#' },
+    { name: 'API Reference', Link: '#' },
     { name: 'Blog', href: '#' }
   ];
 
   const programs = [
-    { name: 'OSS Contributer Program', href: '#' },
+    { name: 'OSS Contributer Program', Link: '#' },
     { name: 'Community', href: '#' }
   ];
 
@@ -98,7 +98,7 @@ export default function Navbar() {
             </div>
 
             <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105">About</a>
-            <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105">Contact</a>
+            <a href="https://github.com/vaishcodescape/WebShark-landing-page.git" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105">Github</a>
           </div>
         </div>
       </div>
