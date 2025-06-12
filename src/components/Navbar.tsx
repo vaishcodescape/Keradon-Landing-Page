@@ -1,8 +1,7 @@
 'use client';
-import Link from 'next/link';
 import { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
-import NextImage from 'next/image';
+import AnimatedLogo from './AnimatedLogo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,8 +23,10 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <NextImage src="/logo.png" alt="WebShark Logo" width={36} height={36} className="h-15 w-15 object-contain bg-white rounded-full p-1" />
-            <span className="text-white text-2xl font-bold">WebShark</span>
+            <AnimatedLogo />
+            <span className="text-white text-3xl font-Space Grotesk sans-serif tracking-wider animate-fade-in shadow-white/20 shadow-lg">
+              WebShark
+            </span>
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105">Features</a>
