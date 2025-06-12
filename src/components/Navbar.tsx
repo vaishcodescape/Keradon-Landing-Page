@@ -106,7 +106,7 @@ export default function Navbar() {
             </div>
 
             <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">About</a>
-            <a href="https://github.com/vaishcodescape/keradon.git" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Github</a>
+            <a href="https://github.com/vaishcodescape/Keradon-landing-page.git" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Github</a>
           </div>
         </div>
       </div>
