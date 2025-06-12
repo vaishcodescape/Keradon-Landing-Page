@@ -17,7 +17,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-black/50 to-black animate-pulse"></div>
         <div className="bg-black/90 backdrop-blur-xl rounded-3xl shadow-[0_0_30px_rgba(255,255,255,0.1)] p-12 w-full max-w-4xl flex flex-col items-center relative z-10 border border-gray-800/30 animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold text-center mb-6 animate-slide-up text-white">
-            Dive Deep into Data with WebShark
+            Dive Deep into Data with Keradon 
           </h1>
           <p className="text-xl md:text-2xl text-white/90 text-center mb-8 max-w-2xl animate-slide-up animation-delay-200">
             Navigate the vast ocean of data with our AI-powered search and visualization tool.
@@ -75,7 +75,7 @@ export default function Home() {
             Make Your Next Data Project Today
           </h1>
           <p className="text-2xl text-gray-200 text-center mb-10 animate-fade-in animation-delay-200 font-medium">
-            Try WebShark for free.
+            Try Keradon.AI for free.
           </p>
           <button className="bg-white text-black px-12 py-4 rounded-full font-semibold text-lg mb-4 hover:bg-gray-100 transition animate-pulse-glow shadow-xl focus:outline-none focus:ring-4 focus:ring-white/30">
             Download

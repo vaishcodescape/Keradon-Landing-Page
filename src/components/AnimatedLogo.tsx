@@ -51,7 +51,7 @@ export default function AnimatedLogo({ onPositionChange }: AnimatedLogoProps) {
                 >
                     <Image
                         src="/logo.png"
-                        alt="WebShark Logo"
+                        alt="Keradon Logo"
                         width={128}
                         height={128}
                         className="object-contain brightness-0 invert w-full h-full"

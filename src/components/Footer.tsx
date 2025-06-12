@@ -9,12 +9,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-white text-xl font-bold">WebShark</h3>
+            <h3 className="text-white text-xl font-bold">Keradon</h3>
             <p className="text-white/60 text-sm">
               Dive deep into data with our powerful analytics and visualization tools.
             </p>
             <div className="flex space-x-4">
-              <a href="https://github.com/vaishcodescape/WebShark-landing-page.git" className="text-white/60 hover:text-white transition-colors">
+              <a href="https://github.com/vaishcodescape/keradon.git" className="text-white/60 hover:text-white transition-colors">
                 <FaGithub className="h-5 w-5" />
               </a>
               <a href="#" className="text-white/60 hover:text-white transition-colors">
@@ -115,7 +115,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-800/30">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-white/60 text-sm">
-              © {new Date().getFullYear()} WebShark. All rights reserved.
+              © {new Date().getFullYear()} Keradon All rights reserved.
             </p>
             <div className="flex space-x-6">
               <Link href="/status" className="text-white/60 hover:text-white transition-colors text-sm">
