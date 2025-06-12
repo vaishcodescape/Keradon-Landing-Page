@@ -4,7 +4,6 @@ import { FaChevronDown } from 'react-icons/fa';
 import AnimatedLogo from './AnimatedLogo';
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const resources = [
