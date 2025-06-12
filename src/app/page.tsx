@@ -1,4 +1,4 @@
-/*Web-Shark Landing Page*/
+/*Keradon Landing Page*/
 'use client';
 import Button from '../components/Button';
 
