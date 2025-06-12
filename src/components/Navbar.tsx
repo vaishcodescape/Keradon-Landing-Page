@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import AnimatedLogo from './AnimatedLogo';
+import Link from 'next/link';
 
 export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -18,23 +19,30 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-xl border-b border-white/10">
-      <div className="container mx-auto px-4 py-4">
+    <nav className="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-xl border-b border-white/10 shadow-lg">
+      <div className="max-w-5xl mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <AnimatedLogo />
-            <span className="text-white text-3xl font-Space Grotesk sans-serif tracking-wider animate-fade-in shadow-white/20 shadow-lg">
-              WebShark
-            </span>
+            <Link href="/" className="flex items-center space-x-3 group no-underline">
+              <AnimatedLogo />
+              <div className="flex flex-col">
+                <span className="text-white text-3xl font-Space Grotesk sans-serif tracking-wider animate-fade-in shadow-white/20 shadow-lg group-hover:text-white/90 transition-all duration-300">
+                  Keradon
+                </span>
+                <span className="text-white/60 text-sm tracking-wider font-light italic animate-fade-in">
+                  Built to Hunt
+                </span>
+              </div>
+            </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105">Features</a>
-            <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105">Pricing</a>
+            <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Features</a>
+            <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Pricing</a>
             
             {/* Resources Dropdown */}
             <div className="relative">
               <button 
-                className="flex items-center text-white/80 hover:text-white transition-all duration-300 hover:scale-105"
+                className="flex items-center text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
                 onMouseEnter={() => setActiveDropdown('resources')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
@@ -67,7 +75,7 @@ export default function Navbar() {
             {/* Programs Dropdown */}
             <div className="relative">
               <button 
-                className="flex items-center text-white/80 hover:text-white transition-all duration-300 hover:scale-105"
+                className="flex items-center text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
                 onMouseEnter={() => setActiveDropdown('programs')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
@@ -97,8 +105,8 @@ export default function Navbar() {
               </div>
             </div>
 
-            <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105">About</a>
-            <a href="https://github.com/vaishcodescape/WebShark-landing-page.git" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105">Github</a>
+            <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">About</a>
+            <a href="https://github.com/vaishcodescape/keradon.git" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Github</a>
           </div>
         </div>
       </div>

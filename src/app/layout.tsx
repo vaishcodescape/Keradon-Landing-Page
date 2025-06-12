@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WebShark",
+  title: "Keradon",
   description: "Data-Bite",
 };
 
