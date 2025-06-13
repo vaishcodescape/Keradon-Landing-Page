@@ -65,9 +65,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-90 animate-gradient-x"></div>
         {/* Glassmorphism Card */}
         <div className="relative z-10 max-w-2xl w-full mx-auto px-6 py-16 rounded-3xl bg-black/70 backdrop-blur-xl shadow-2xl border border-white/10 flex flex-col items-center">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-center mb-6 animate-slide-up text-white drop-shadow-lg">
-            Make Your Next Data Project Today
-          </h1>
+          <h2 className="text-5xl md:text-7xl font-extrabold text-center mb-6 animate-slide-up text-white drop-shadow-lg">
+            No Noise.No Cloud.Just Smart WebScraping
+          </h2>
           <p className="text-2xl text-gray-200 text-center mb-10 animate-fade-in animation-delay-200 font-medium">
             Try Keradon for free.
           </p>
