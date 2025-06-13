@@ -8,41 +8,48 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const resources = [
-    { name: 'Documentation', Link: '#' },
-    { name: 'API Reference', Link: '#' },
+    { name: 'Documentation', href: '#' },
+    { name: 'API Reference', href: '#' },
     { name: 'Blog', href: '#' }
   ];
 
   const programs = [
-    { name: 'OSS Contributer Program', Link: '#' },
+    { name: 'OSS Contributor Program', href: '/oss_program' },
     { name: 'Community', href: '#' }
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-xl border-b border-white/10 shadow-lg">
-      <div className="max-w-5xl mx-auto px-6 py-3">
+    <nav className="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-xl border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <Link href="/" className="flex items-center space-x-3 group no-underline">
+          {/* Logo and Brand */}
+          <Link href="/" className="flex items-center space-x-4 group no-underline">
+            <div className="w-14 h-14 flex items-center justify-center">
               <AnimatedLogo />
-              <div className="flex flex-col">
-                <span className="text-white text-3xl font-Space Grotesk sans-serif tracking-wider animate-fade-in shadow-white/20 shadow-lg group-hover:text-white/90 transition-all duration-300">
-                  Keradon
-                </span>
-                <span className="text-white/60 text-sm tracking-wider font-light italic animate-fade-in">
-                  Built to Hunt
-                </span>
-              </div>
+            </div>
+            <div className="flex flex-col justify-center">
+              <span className="text-white text-2xl font-bold tracking-wide group-hover:text-white/90 transition-all duration-300 leading-none">
+                Keradon
+              </span>
+              <span className="text-white/60 text-sm tracking-wide font-light leading-none mt-0.5">
+                Built to Hunt
+              </span>
+            </div>
+          </Link>
+
+          {/* Navigation Links */}
+          <div className="hidden md:flex items-center justify-center flex-1 space-x-8">
+            <Link href="/features" className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium">
+              Features
             </Link>
-          </div>
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Features</a>
-            <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Pricing</a>
+            <Link href="#" className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium">
+              Pricing
+            </Link>
             
             {/* Resources Dropdown */}
             <div className="relative">
               <button 
-                className="flex items-center text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                className="flex items-center text-white/80 hover:text-white transition-all duration-300 text-sm font-medium"
                 onMouseEnter={() => setActiveDropdown('resources')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
@@ -58,16 +65,14 @@ export default function Navbar() {
                 onMouseEnter={() => setActiveDropdown('resources')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                {resources.map((item, index) => (
-                  <a
+                {resources.map((item) => (
+                  <Link
                     key={item.name}
                     href={item.href}
-                    className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 transition-all duration-300
-                      hover:translate-x-1 hover:scale-105"
-                    style={{ animationDelay: `${index * 2000}ms` }}
+                    className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 transition-all duration-300 text-sm"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -75,7 +80,7 @@ export default function Navbar() {
             {/* Programs Dropdown */}
             <div className="relative">
               <button 
-                className="flex items-center text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                className="flex items-center text-white/80 hover:text-white transition-all duration-300 text-sm font-medium"
                 onMouseEnter={() => setActiveDropdown('programs')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
@@ -91,22 +96,24 @@ export default function Navbar() {
                 onMouseEnter={() => setActiveDropdown('programs')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                {programs.map((item, index) => (
-                  <a
+                {programs.map((item) => (
+                  <Link
                     key={item.name}
                     href={item.href}
-                    className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 transition-all duration-300
-                      hover:translate-x-1 hover:scale-105"
-                    style={{ animationDelay: `${index * 50}ms` }}
+                    className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 transition-all duration-300 text-sm"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
 
-            <a href="#" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">About</a>
-            <a href="https://github.com/vaishcodescape/Keradon-landing-page.git" className="text-white/80 hover:text-white transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">Github</a>
+            <Link href="/about" className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium">
+              About
+            </Link>
+            <Link href="https://github.com/vaishcodescape/Keradon-landing-page.git" className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium">
+              Github
+            </Link>
           </div>
         </div>
       </div>
