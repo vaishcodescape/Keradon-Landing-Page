@@ -45,7 +45,7 @@ export default function Home() {
             <div className="bg-black/90 backdrop-blur-xl rounded-3xl shadow-[0_0_30px_rgba(255,255,255,0.1)] p-10 border border-gray-800/30 hover:border-gray-700/50 transition-all duration-300">
               <div className="flex flex-col justify-center h-full">
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up text-white">
-                  Use Analytics to make your next project
+                  Use Data Analytics to make your next project
                 </h1>
                 <p className="text-xl text-white/90 mb-8 animate-slide-up animation-delay-200">
                   Transform your data into actionable insights with our powerful analytics tools.
