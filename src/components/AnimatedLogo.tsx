@@ -2,12 +2,15 @@
 
 import { motion } from "framer-motion";
 import Image from 'next/image';
+import { useTheme } from "next-themes";
 
 interface AnimatedLogoProps {
     onPositionChange?: (isOverTitle: boolean) => void;
 }
 
 export default function AnimatedLogo({ onPositionChange }: AnimatedLogoProps) {
+    const { theme } = useTheme();
+
     return (
         <div className="relative w-32 h-32 flex items-center justify-center mx-auto">
             <motion.div
@@ -54,7 +57,9 @@ export default function AnimatedLogo({ onPositionChange }: AnimatedLogoProps) {
                         alt="Keradon Logo"
                         width={128}
                         height={128}
-                        className="object-contain brightness-0 invert"
+                        className={`object-contain transition-colors duration-200 ${
+                            theme === 'dark' ? 'brightness-0 invert' : ''
+                        }`}
                         style={{ width: 'auto', height: 'auto' }}
                         priority
                     />

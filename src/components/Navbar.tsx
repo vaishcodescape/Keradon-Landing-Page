@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import AnimatedLogo from './AnimatedLogo';
 import Link from 'next/link';
+import { ThemeSwitcher } from './theme-switcher';
 
 export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -19,7 +20,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-xl border-b border-white/10">
+    <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-border">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo and Brand */}
@@ -28,10 +29,10 @@ export default function Navbar() {
               <AnimatedLogo />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="text-white text-2xl font-bold tracking-wide group-hover:text-white/90 transition-all duration-300 leading-none">
+              <span className="text-foreground text-2xl font-bold tracking-wide group-hover:text-foreground/90 transition-all duration-300 leading-none">
                 Keradon
               </span>
-              <span className="text-white/60 text-sm tracking-wide font-light leading-none mt-0.5">
+              <span className="text-muted-foreground text-sm tracking-wide font-light leading-none mt-0.5">
                 Built to Hunt
               </span>
             </div>
@@ -39,17 +40,17 @@ export default function Navbar() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center justify-center flex-1 space-x-8">
-            <Link href="/features" className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium">
+            <Link href="/features" className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium">
               Features
             </Link>
-            <Link href="#" className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium">
+            <Link href="#" className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium">
               Pricing
             </Link>
             
             {/* Resources Dropdown */}
             <div className="relative">
               <button 
-                className="flex items-center text-white/80 hover:text-white transition-all duration-300 text-sm font-medium"
+                className="flex items-center text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium"
                 onMouseEnter={() => setActiveDropdown('resources')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
@@ -57,7 +58,7 @@ export default function Navbar() {
                 <FaChevronDown className={`ml-1 h-3 w-3 transition-transform duration-300 ${activeDropdown === 'resources' ? 'rotate-180' : ''}`} />
               </button>
               <div 
-                className={`absolute left-0 mt-2 w-48 bg-black/95 backdrop-blur-xl border border-white/10 rounded-lg shadow-lg py-2
+                className={`absolute left-0 mt-2 w-48 bg-background/95 backdrop-blur-xl border border-border rounded-lg shadow-lg py-2
                   transform transition-all duration-300 ease-out origin-top
                   ${activeDropdown === 'resources' 
                     ? 'opacity-100 scale-100 translate-y-0' 
@@ -69,7 +70,7 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 transition-all duration-300 text-sm"
+                    className="block px-4 py-2 text-muted-foreground hover:text-foreground hover:bg-accent transition-all duration-300 text-sm"
                   >
                     {item.name}
                   </Link>
@@ -80,7 +81,7 @@ export default function Navbar() {
             {/* Programs Dropdown */}
             <div className="relative">
               <button 
-                className="flex items-center text-white/80 hover:text-white transition-all duration-300 text-sm font-medium"
+                className="flex items-center text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium"
                 onMouseEnter={() => setActiveDropdown('programs')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
@@ -88,7 +89,7 @@ export default function Navbar() {
                 <FaChevronDown className={`ml-1 h-3 w-3 transition-transform duration-300 ${activeDropdown === 'programs' ? 'rotate-180' : ''}`} />
               </button>
               <div 
-                className={`absolute left-0 mt-2 w-48 bg-black/95 backdrop-blur-xl border border-white/10 rounded-lg shadow-lg py-2
+                className={`absolute left-0 mt-2 w-48 bg-background/95 backdrop-blur-xl border border-border rounded-lg shadow-lg py-2
                   transform transition-all duration-300 ease-out origin-top
                   ${activeDropdown === 'programs' 
                     ? 'opacity-100 scale-100 translate-y-0' 
@@ -100,7 +101,7 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 transition-all duration-300 text-sm"
+                    className="block px-4 py-2 text-muted-foreground hover:text-foreground hover:bg-accent transition-all duration-300 text-sm"
                   >
                     {item.name}
                   </Link>
@@ -108,12 +109,17 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="/about" className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium">
+            <Link href="/about" className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium">
               About
             </Link>
-            <Link href="https://github.com/vaishcodescape/Keradon-landing-page.git" className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium">
+            <Link href="https://github.com/vaishcodescape/Keradon-landing-page.git" className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium">
               Github
             </Link>
+          </div>
+
+          {/* Theme Switcher */}
+          <div className="flex items-center space-x-4">
+            <ThemeSwitcher />
           </div>
         </div>
       </div>
