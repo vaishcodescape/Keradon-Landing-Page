@@ -9,20 +9,20 @@ export default function Home() {
     <main className="min-h-screen bg-black dark:bg-black">
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center min-h-screen py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-95 animate-gradient-x dark:from-black dark:via-gray-900 dark:to-black"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-black/50 to-black animate-pulse dark:from-transparent dark:via-black/50 dark:to-black"></div>
-        <div className="w-full max-w-6xl relative z-10 animate-fade-in text-center pt-20">
-          <Card className="bg-black/90 backdrop-blur-xl border-gray-800/30 hover:border-gray-700/50 transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(255,255,255,0.15)] group dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-gray-100 to-background opacity-95 animate-gradient-x dark:from-black dark:via-gray-900 dark:to-black"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-background/50 to-background animate-pulse dark:from-transparent dark:via-black/50 dark:to-black"></div>
+        <div className="w-full max-w-3xl relative z-10 animate-fade-in text-center pt-20">
+          <Card className="bg-background/90 backdrop-blur-xl border-border hover:border-border/50 transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(0,0,0,0.15)] group dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50">
             <CardHeader>
-              <CardTitle className="text-5xl md:text-7xl font-bold text-center mb-6 animate-slide-up text-white dark:text-white">
+              <CardTitle className="text-5xl md:text-7xl font-bold text-center mb-6 animate-slide-up text-foreground dark:text-white">
                 Dive Deep into Data with Keradon
               </CardTitle>
-              <CardDescription className="text-xl md:text-2xl text-white/90 text-center mb-8 max-w-2xl mx-auto animate-slide-up animation-delay-200 dark:text-white/90">
+              <CardDescription className="text-xl md:text-2xl text-muted-foreground text-center mb-8 max-w-2xl mx-auto animate-slide-up animation-delay-200 dark:text-white/90">
                 Navigate the vast ocean of data with our AI-powered search and visualization tool.
               </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <Button variant="default" size="lg" className="bg-white text-black hover:bg-gray-100">
+              <Button variant="default" size="lg" className="bg-foreground text-background hover:bg-foreground/90">
                 Get Started
               </Button>
             </CardContent>
@@ -32,39 +32,39 @@ export default function Home() {
 
       {/*Middle Section*/}
       <section className="flex flex-col items-center justify-center min-h-screen py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-95 animate-gradient-x-reverse dark:from-black dark:via-gray-900 dark:to-black"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-black/50 to-black animate-pulse dark:from-transparent dark:via-black/50 dark:to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-gray-100 to-background opacity-95 animate-gradient-x-reverse dark:from-black dark:via-gray-900 dark:to-black"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-background/50 to-background animate-pulse dark:from-transparent dark:via-black/50 dark:to-black"></div>
         <div className="w-full max-w-6xl relative z-10 animate-fade-in animation-delay-300">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
             {/* Left Box */}
-            <Card className="bg-black/90 backdrop-blur-xl border-gray-800/30 hover:border-gray-700/50 transition-all duration-300 dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50">
+            <Card className="bg-background/90 backdrop-blur-xl border-border hover:border-border/50 transition-all duration-300 dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50">
               <CardHeader>
-                <CardTitle className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up text-white dark:text-white">
+                <CardTitle className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up text-foreground dark:text-white">
                   Hunt for Insights
                 </CardTitle>
-                <CardDescription className="text-xl text-white/90 mb-8 animate-slide-up animation-delay-200 dark:text-white/90">
+                <CardDescription className="text-xl text-muted-foreground mb-8 animate-slide-up animation-delay-200 dark:text-white/90">
                   Like a shark in the water, swiftly find and analyze the data you need.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="default" size="lg" className="bg-white text-black hover:bg-gray-100">
+                <Button variant="default" size="lg" className="bg-foreground text-background hover:bg-foreground/90">
                   Learn More
                 </Button>
               </CardContent>
             </Card>
 
             {/* Right Box */}
-            <Card className="bg-black/90 backdrop-blur-xl border-gray-800/30 hover:border-gray-700/50 transition-all duration-300 dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50">
+            <Card className="bg-background/90 backdrop-blur-xl border-border hover:border-border/50 transition-all duration-300 dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50">
               <CardHeader>
-                <CardTitle className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up text-white dark:text-white">
+                <CardTitle className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up text-foreground dark:text-white">
                   Use Data Analytics to make your next project
                 </CardTitle>
-                <CardDescription className="text-xl text-white/90 mb-8 animate-slide-up animation-delay-200 dark:text-white/90">
+                <CardDescription className="text-xl text-muted-foreground mb-8 animate-slide-up animation-delay-200 dark:text-white/90">
                   Transform your data into actionable insights with our powerful analytics tools.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="default" size="lg" className="bg-white text-black hover:bg-gray-100">
+                <Button variant="default" size="lg" className="bg-foreground text-background hover:bg-foreground/90">
                   Get Started
                 </Button>
               </CardContent>
@@ -75,34 +75,35 @@ export default function Home() {
 
       {/* Final Section */}
       <section className="w-full min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-90 animate-gradient-x dark:from-black dark:via-gray-900 dark:to-gray-800"></div>
-        <Card className="relative z-10 max-w-2xl w-full mx-auto px-6 py-16 bg-black/70 backdrop-blur-xl border-white/10 dark:bg-black/70 dark:border-white/10">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-gray-100 to-background opacity-95 animate-gradient-x dark:from-black dark:via-gray-900 dark:to-black"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-background/50 to-background animate-pulse dark:from-transparent dark:via-black/50 dark:to-black"></div>
+        <Card className="relative z-10 max-w-4xl w-full mx-auto px-6 py-16 bg-background/70 backdrop-blur-xl border-border dark:bg-black/70 dark:border-gray-800/30">
           <CardHeader>
-            <CardTitle className="text-5xl md:text-7xl font-extrabold text-center mb-6 animate-slide-up text-white drop-shadow-lg dark:text-white">
+            <CardTitle className="text-5xl md:text-7xl font-extrabold text-center mb-6 animate-slide-up text-foreground drop-shadow-lg dark:text-white">
               No Noise.No Cloud.Just Smart WebScraping
             </CardTitle>
-            <CardDescription className="text-2xl text-gray-200 text-center mb-10 animate-fade-in animation-delay-200 font-medium dark:text-gray-200">
+            <CardDescription className="text-2xl text-muted-foreground text-center mb-10 animate-fade-in animation-delay-200 font-medium dark:text-gray-200">
               Try Keradon for free.
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col items-center gap-4">
-            <Button variant="default" size="lg" className="bg-white text-black hover:bg-gray-100">
+            <Button variant="default" size="lg" className="bg-foreground text-background hover:bg-foreground/90">
               Download
             </Button>
-            <a href="#" className="text-gray-300 hover:text-white transition animate-fade-in block text-lg underline dark:text-gray-300 dark:hover:text-white">
+            <a href="#" className="text-muted-foreground hover:text-foreground transition animate-fade-in block text-lg underline dark:text-gray-300 dark:hover:text-white">
               Interested in contributing?
             </a>
           </CardContent>
         </Card>
-        <div className="absolute -top-16 -left-16 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-float dark:bg-white/10"></div>
-        <div className="absolute -bottom-24 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-float animation-delay-200 dark:bg-white/10"></div>
+        <div className="absolute -top-16 -left-16 w-64 h-64 bg-background/10 rounded-full blur-3xl animate-float dark:bg-background/10"></div>
+        <div className="absolute -bottom-24 right-0 w-80 h-80 bg-background/10 rounded-full blur-3xl animate-float animation-delay-200 dark:bg-background/10"></div>
       </section>
 
       {/* Contact Section */}
       <section className="w-full min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-90 animate-gradient-x dark:from-black dark:via-gray-900 dark:to-gray-800"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-gray-100 to-background opacity-95 animate-gradient-x dark:from-black dark:via-gray-900 dark:to-black"></div>
         <div className="relative z-10 w-full mx-auto px-6 py-16 flex flex-col items-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-white dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-foreground dark:text-white">
             Get in Touch
           </h2>
           <ContactForm />
