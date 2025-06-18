@@ -80,7 +80,7 @@ export default function Home() {
         <Card className="relative z-10 max-w-4xl w-full mx-auto px-6 py-16 bg-background/70 backdrop-blur-xl border-border dark:bg-black/70 dark:border-gray-800/30">
           <CardHeader>
             <CardTitle className="text-5xl md:text-7xl font-extrabold text-center mb-6 animate-slide-up text-foreground drop-shadow-lg dark:text-white">
-              No Code.No Cloud.Just Smart WebScraping
+              No Code.No Noise.Just Smart Web Scraping
             </CardTitle>
             <CardDescription className="text-2xl text-muted-foreground text-center mb-10 animate-fade-in animation-delay-200 font-medium dark:text-gray-200">
               Try Keradon for free.
