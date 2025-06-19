@@ -6,6 +6,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ContactForm } from '@/components/ContactForm';
 
 export default function Home() {
+  const scrollToFinalSection = () => {
+    const finalSection = document.getElementById('final-section');
+    if (finalSection) {
+      finalSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <main className="min-h-screen bg-black dark:bg-black">
       {/* Hero Section */}
@@ -23,7 +33,12 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <Button variant="default" size="lg" className="bg-foreground text-background hover:bg-foreground/90" >
+              <Button 
+                variant="default" 
+                size="lg" 
+                className="bg-foreground text-background hover:bg-foreground/90"
+                onClick={scrollToFinalSection}
+              >
                 Get Started
               </Button>
             </CardContent>
@@ -65,7 +80,12 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="default" size="lg" className="bg-foreground text-background hover:bg-foreground/90">
+                <Button 
+                  variant="default" 
+                  size="lg" 
+                  className="bg-foreground text-background hover:bg-foreground/90"
+                  onClick={scrollToFinalSection}
+                >
                   Get Started
                 </Button>
               </CardContent>
@@ -75,7 +95,7 @@ export default function Home() {
       </section>
 
       {/* Final Section */}
-      <section className="w-full min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+      <section id="final-section" className="w-full min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-gray-100 to-background opacity-95 animate-gradient-x dark:from-black dark:via-gray-900 dark:to-black"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-background/50 to-background animate-pulse dark:from-transparent dark:via-black/50 dark:to-black"></div>
         <Card className="relative z-10 max-w-4xl w-full mx-auto px-6 py-16 bg-background/70 backdrop-blur-xl border-border dark:bg-black/70 dark:border-gray-800/30">
