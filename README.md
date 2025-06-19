@@ -31,7 +31,6 @@ Keradon is a powerful data analytics and visualization platform designed to help
    cd Keradon-landing-page
    npm install
    ```
-
 3. Run the development server:
    ```bash
    npm run dev
@@ -60,3 +59,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🌟 Support
 
 If you find this project helpful, please give it a ⭐️ on GitHub!
+
