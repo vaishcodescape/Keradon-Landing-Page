@@ -1,5 +1,6 @@
 /*Keradon Landing Page*/
 'use client';
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ContactForm } from '@/components/ContactForm';
@@ -22,7 +23,7 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <Button variant="default" size="lg" className="bg-foreground text-background hover:bg-foreground/90">
+              <Button variant="default" size="lg" className="bg-foreground text-background hover:bg-foreground/90" >
                 Get Started
               </Button>
             </CardContent>
@@ -90,7 +91,7 @@ export default function Home() {
             <Button variant="default" size="lg" className="bg-foreground text-background hover:bg-foreground/90">
               Download
             </Button>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition animate-fade-in block text-lg underline dark:text-gray-300 dark:hover:text-white">
+            <a href="/oss_program" className="text-muted-foreground hover:text-foreground transition animate-fade-in block text-lg underline dark:text-gray-300 dark:hover:text-white">
               Interested in contributing?
             </a>
           </CardContent>
