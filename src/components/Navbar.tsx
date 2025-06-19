@@ -78,7 +78,7 @@ export default function Navbar() {
             <Link href="/about" className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium">
               About
             </Link>
-            <Link href="https://github.com/vaishcodescape/Keradon-landing-page.git" className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium">
+            <Link href="https://github.com/vaishcodescape/Keradon-Citadel.git" className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium">
               Github
             </Link>
           </div>
