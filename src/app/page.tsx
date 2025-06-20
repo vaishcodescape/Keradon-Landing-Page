@@ -56,7 +56,7 @@ export default function Home() {
         <div className="w-full relative z-10 mb-16">
           <MacbookScroll
             src=""
-            title="Experience the power of Keradon"
+            title="Experience the Power of Keradon"
             showGradient={true}
           />
         </div>

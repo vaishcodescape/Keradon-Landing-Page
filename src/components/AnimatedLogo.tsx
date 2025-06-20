@@ -11,14 +11,14 @@ export default function AnimatedLogo({ onPositionChange }: AnimatedLogoProps) {
     const { theme } = useTheme();
 
     return (
-        <div className="relative w-32 h-32 flex items-center justify-center mx-auto">
+        <div className="relative w-40 h-40 flex items-center justify-center mx-auto">
             <div className="absolute w-full h-full flex items-center justify-center animate-slide-in">
                 <div className="flex items-center justify-center animate-pulse-subtle">
                     <Image
                         src="/logo.png"
                         alt="Keradon Logo"
-                        width={128}
-                        height={128}
+                        width={160}
+                        height={160}
                         className="object-contain transition-colors duration-200 dark:invert"
                         style={{ width: 'auto', height: 'auto' }}
                         priority

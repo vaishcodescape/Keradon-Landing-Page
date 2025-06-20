@@ -58,19 +58,11 @@ export default function Navbar() {
       <ResizableNavbar>
         <NavBody>
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-4 group no-underline">
+           
             <div className="w-14 h-14 flex items-center justify-center">
               <AnimatedLogo />
             </div>
-            <div className="flex flex-col justify-center">
-              <span className="text-foreground text-2xl font-bold tracking-wide group-hover:text-foreground/90 transition-all duration-300 leading-none">
-                Keradon
-              </span>
-              <span className="text-muted-foreground text-sm tracking-wide font-light leading-none mt-0.5">
-                Built to Hunt
-              </span>
-            </div>
-          </Link>
+
 
           {/* Navigation Items with Programs Dropdown */}
           <div className="absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-6 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-6 px-48">
