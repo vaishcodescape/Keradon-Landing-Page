@@ -39,7 +39,8 @@ export default function About() {
               About Keradon
             </h3>
             <p className="text-lg text-muted-foreground dark:text-gray-300 max-w-2xl">
-              Keradon provides user a simple and easy way to scrape data from websites and obtain the data they need from reliable sources.
+              Keradon provides user a simple and easy way to scrape data from websites and obtain the data they need from reliable sources
+              from businesses to data scientists to students Keradon is the perfect tool you need.
             </p>
           </div>
           <EvervaultCard text="Keradon" className="w-80 h-80" />

@@ -1,119 +1,131 @@
 "use client";
 
 import { FaChartLine, FaRobot, FaDatabase, FaTools, FaShieldAlt, FaUsers } from 'react-icons/fa';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 
 export default function Features() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
       <section className="flex flex-col items-center justify-center min-h-screen pt-32 pb-40 px-4 relative overflow-hidden">
-        <div className="w-full max-w-6xl relative z-10 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-center mb-16 text-foreground dark:text-white">
-            Features
-          </h1>
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-secondary/20 to-transparent rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="w-full max-w-7xl relative z-10 animate-fade-in">
+          {/* Enhanced header section */}
+          <div className="text-center mb-20">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent dark:from-white dark:via-primary dark:to-white">
+              Features
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed dark:text-white/70">
+              Discover the powerful tools and capabilities that make our platform the ultimate solution for your data needs
+            </p>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 align-middle">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 align-middle">
             {/* Advanced Analytics */}
-            <Card className="bg-background/90 backdrop-blur-xl border-border hover:border-border/50 transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(0,0,0,0.15)] group dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-foreground/10 to-foreground/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                  <FaChartLine className="w-8 h-8 text-foreground dark:text-white" />
-                </div>
-                <CardTitle className="text-2xl font-bold mb-4 text-foreground dark:text-white">
-                  Advanced Analytics
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 dark:text-white/80 dark:group-hover:text-white/90">
-                  Powerful analytics tools with real-time data processing and visualization capabilities.
-                </CardDescription>
-              </CardContent>
-            </Card>
+            <CardContainer className="w-full group">
+              <CardBody className="bg-gradient-to-br from-background/95 via-background/90 to-background/95 backdrop-blur-xl border border-border/50 rounded-3xl p-8 hover:border-primary/50 transition-all duration-700 ease-out hover:shadow-2xl hover:shadow-primary/10 group-hover:scale-[1.02] dark:from-black/95 dark:via-black/90 dark:to-black/95 dark:border-gray-800/50 dark:hover:border-primary/50">
+                <CardItem translateZ="75" className="w-full">
+                  <div className="w-20 h-20 bg-gradient-to-br from-foreground/10 to-foreground/5 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500 group-hover:rotate-3">
+                    <FaChartLine className="w-10 h-10 text-foreground dark:text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground dark:text-white group-hover:text-primary transition-colors duration-300">
+                    Advanced Analytics
+                  </h3>
+                  <p className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 dark:text-white/70 dark:group-hover:text-white/90 leading-relaxed">
+                    Powerful analytics tools with real-time data processing and visualization capabilities that transform your insights into actionable intelligence.
+                  </p>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
 
             {/* AI-Powered Insights */}
-            <Card className="bg-background/90 backdrop-blur-xl border-border hover:border-border/50 transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(0,0,0,0.15)] group dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-foreground/10 to-foreground/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                  <FaRobot className="w-8 h-8 text-foreground dark:text-white" />
-                </div>
-                <CardTitle className="text-2xl font-bold mb-4 text-foreground dark:text-white">
-                  AI-Powered Insights
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 dark:text-white/80 dark:group-hover:text-white/90">
-                  Leverage artificial intelligence to uncover hidden patterns and insights in your data.
-                </CardDescription>
-              </CardContent>
-            </Card>
+            <CardContainer className="w-full group">
+              <CardBody className="bg-gradient-to-br from-background/95 via-background/90 to-background/95 backdrop-blur-xl border border-border/50 rounded-3xl p-8 hover:border-primary/50 transition-all duration-700 ease-out hover:shadow-2xl hover:shadow-primary/10 group-hover:scale-[1.02] dark:from-black/95 dark:via-black/90 dark:to-black/95 dark:border-gray-800/50 dark:hover:border-primary/50">
+                <CardItem translateZ="75" className="w-full">
+                  <div className="w-20 h-20 bg-gradient-to-br from-foreground/10 to-foreground/5 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500 group-hover:rotate-3">
+                    <FaRobot className="w-10 h-10 text-foreground dark:text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground dark:text-white group-hover:text-primary transition-colors duration-300">
+                    AI-Powered Insights
+                  </h3>
+                  <p className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 dark:text-white/70 dark:group-hover:text-white/90 leading-relaxed">
+                    Leverage cutting-edge artificial intelligence to uncover hidden patterns and predictive insights that drive smarter business decisions.
+                  </p>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
 
             {/* Data Integration */}
-            <Card className="bg-background/90 backdrop-blur-xl border-border hover:border-border/50 transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(0,0,0,0.15)] group dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-foreground/10 to-foreground/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                  <FaDatabase className="w-8 h-8 text-foreground dark:text-white" />
-                </div>
-                <CardTitle className="text-2xl font-bold mb-4 text-foreground dark:text-white">
-                  Data Integration
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 dark:text-white/80 dark:group-hover:text-white/90">
-                  Seamlessly connect and integrate data from multiple sources for comprehensive analysis.
-                </CardDescription>
-              </CardContent>
-            </Card>
+            <CardContainer className="w-full group">
+              <CardBody className="bg-gradient-to-br from-background/95 via-background/90 to-background/95 backdrop-blur-xl border border-border/50 rounded-3xl p-8 hover:border-primary/50 transition-all duration-700 ease-out hover:shadow-2xl hover:shadow-primary/10 group-hover:scale-[1.02] dark:from-black/95 dark:via-black/90 dark:to-black/95 dark:border-gray-800/50 dark:hover:border-primary/50">
+                <CardItem translateZ="75" className="w-full">
+                  <div className="w-20 h-20 bg-gradient-to-br from-foreground/10 to-foreground/5 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500 group-hover:rotate-3">
+                    <FaDatabase className="w-10 h-10 text-foreground dark:text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground dark:text-white group-hover:text-primary transition-colors duration-300">
+                    Data Integration
+                  </h3>
+                  <p className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 dark:text-white/70 dark:group-hover:text-white/90 leading-relaxed">
+                    Seamlessly connect and integrate data from multiple sources with automated workflows for comprehensive, unified analysis.
+                  </p>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
 
-            {/* Custom Solutions */}
-            <Card className="bg-background/90 backdrop-blur-xl border-border hover:border-border/50 transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(0,0,0,0.15)] group dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-foreground/10 to-foreground/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                  <FaTools className="w-8 h-8 text-foreground dark:text-white" />
-                </div>
-                <CardTitle className="text-2xl font-bold mb-4 text-foreground dark:text-white">
-                  Data Extraction Tools
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 dark:text-white/80 dark:group-hover:text-white/90">
-                  Find Data Extraction Tools tailored for your needs.
-                </CardDescription>
-              </CardContent>
-            </Card>
+            {/* Data Extraction Tools */}
+            <CardContainer className="w-full group">
+              <CardBody className="bg-gradient-to-br from-background/95 via-background/90 to-background/95 backdrop-blur-xl border border-border/50 rounded-3xl p-8 hover:border-primary/50 transition-all duration-700 ease-out hover:shadow-2xl hover:shadow-primary/10 group-hover:scale-[1.02] dark:from-black/95 dark:via-black/90 dark:to-black/95 dark:border-gray-800/50 dark:hover:border-primary/50">
+                <CardItem translateZ="75" className="w-full">
+                  <div className="w-20 h-20 bg-gradient-to-br from-foreground/10 to-foreground/5 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500 group-hover:rotate-3">
+                    <FaTools className="w-10 h-10 text-foreground dark:text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground dark:text-white group-hover:text-primary transition-colors duration-300">
+                    Data Extraction Tools
+                  </h3>
+                  <p className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 dark:text-white/70 dark:group-hover:text-white/90 leading-relaxed">
+                    Advanced extraction tools tailored to your specific needs, with intelligent parsing and automated data cleaning capabilities.
+                  </p>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
 
             {/* Security & Privacy */}
-            <Card className="bg-background/90 backdrop-blur-xl border-border hover:border-border/50 transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(0,0,0,0.15)] group dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-foreground/10 to-foreground/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                  <FaShieldAlt className="w-8 h-8 text-foreground dark:text-white" />
-                </div>
-                <CardTitle className="text-2xl font-bold mb-4 text-foreground dark:text-white">
-                  Security & Privacy
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 dark:text-white/80 dark:group-hover:text-white/90">
-                  Enterprise-grade security with advanced encryption and privacy controls.
-                </CardDescription>
-              </CardContent>
-            </Card>
+            <CardContainer className="w-full group">
+              <CardBody className="bg-gradient-to-br from-background/95 via-background/90 to-background/95 backdrop-blur-xl border border-border/50 rounded-3xl p-8 hover:border-primary/50 transition-all duration-700 ease-out hover:shadow-2xl hover:shadow-primary/10 group-hover:scale-[1.02] dark:from-black/95 dark:via-black/90 dark:to-black/95 dark:border-gray-800/50 dark:hover:border-primary/50">
+                <CardItem translateZ="75" className="w-full">
+                  <div className="w-20 h-20 bg-gradient-to-br from-foreground/10 to-foreground/5 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500 group-hover:rotate-3">
+                    <FaShieldAlt className="w-10 h-10 text-foreground dark:text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground dark:text-white group-hover:text-primary transition-colors duration-300">
+                    Security & Privacy
+                  </h3>
+                  <p className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 dark:text-white/70 dark:group-hover:text-white/90 leading-relaxed">
+                    Enterprise-grade security with advanced encryption, compliance controls, and privacy protection that you can trust.
+                  </p>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
 
             {/* Collaboration */}
-            <Card className="bg-background/90 backdrop-blur-xl border-border hover:border-border/50 transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(0,0,0,0.15)] group dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-foreground/10 to-foreground/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                  <FaUsers className="w-8 h-8 text-foreground dark:text-white" />
-                </div>
-                <CardTitle className="text-2xl font-bold mb-4 text-foreground dark:text-white">
-                  Collaboration
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 dark:text-white/80 dark:group-hover:text-white/90">
-                  Work together seamlessly with real-time collaboration and sharing features.
-                </CardDescription>
-              </CardContent>
-            </Card>
+            <CardContainer className="w-full group">
+              <CardBody className="bg-gradient-to-br from-background/95 via-background/90 to-background/95 backdrop-blur-xl border border-border/50 rounded-3xl p-8 hover:border-primary/50 transition-all duration-700 ease-out hover:shadow-2xl hover:shadow-primary/10 group-hover:scale-[1.02] dark:from-black/95 dark:via-black/90 dark:to-black/95 dark:border-gray-800/50 dark:hover:border-primary/50">
+                <CardItem translateZ="75" className="w-full">
+                  <div className="w-20 h-20 bg-gradient-to-br from-foreground/10 to-foreground/5 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500 group-hover:rotate-3">
+                    <FaUsers className="w-10 h-10 text-foreground dark:text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground dark:text-white group-hover:text-primary transition-colors duration-300">
+                    Collaboration
+                  </h3>
+                  <p className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 dark:text-white/70 dark:group-hover:text-white/90 leading-relaxed">
+                    Work together seamlessly with real-time collaboration, shared workspaces, and powerful team management features.
+                  </p>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
           </div>
         </div>
       </section>
