@@ -2,6 +2,8 @@
 
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { EvervaultCard } from "@/components/ui/evervault-card";
+import Image from "next/image";
+
 export default function About() {
   return (
     <main className="min-h-screen bg-black dark:bg-black">
@@ -19,7 +21,12 @@ export default function About() {
               </h2>
             }
           >
-            <img src="#"  className="w-full h-full object-cover" />
+            <Image 
+              src="/placeholder-image.jpg" 
+              alt="Web scraping illustration"
+              fill
+              className="object-cover"
+            />
           </ContainerScroll>
         </div>
       </section>

@@ -17,6 +17,9 @@ const eslintConfig = [
       "@typescript-eslint/no-empty-object-type": "off",
     },
   },
+  {
+    ignores: [".next/**", ".next/types/**"]
+  }
 ];
 
 export default eslintConfig;
