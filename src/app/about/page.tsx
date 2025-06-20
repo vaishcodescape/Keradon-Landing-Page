@@ -39,8 +39,7 @@ export default function About() {
               About Keradon
             </h3>
             <p className="text-lg text-muted-foreground dark:text-gray-300 max-w-2xl">
-              We are passionate about transforming the way businesses handle data. 
-              Our platform combines cutting-edge technology with intuitive design.
+              Keradon provides user a simple and easy way to scrape data from websites and obtain the data they need from reliable sources.
             </p>
           </div>
           <EvervaultCard text="Keradon" className="w-80 h-80" />
