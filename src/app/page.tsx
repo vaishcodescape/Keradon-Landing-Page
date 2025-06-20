@@ -4,6 +4,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ContactForm } from '@/components/ContactForm';
+import { MacbookScroll } from '@/components/ui/macbook-scroll';
 
 export default function Home() {
   const scrollToFinalSection = () => {
@@ -50,6 +51,16 @@ export default function Home() {
       <section className="flex flex-col items-center justify-center min-h-screen py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-gray-100 to-background opacity-95 animate-gradient-x-reverse dark:from-black dark:via-gray-900 dark:to-black"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-background/50 to-background animate-pulse dark:from-transparent dark:via-black/50 dark:to-black"></div>
+        
+        {/* MacbookScroll Demo */}
+        <div className="w-full relative z-10 mb-16">
+          <MacbookScroll
+            src=""
+            title="Experience the power of Keradon"
+            showGradient={true}
+          />
+        </div>
+        
         <div className="w-full max-w-6xl relative z-10 animate-fade-in animation-delay-300">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
             {/* Left Box */}
