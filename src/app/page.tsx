@@ -5,8 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../co
 import { MacbookScroll } from '../components/ui/macbook-scroll';
 import { ContainerScroll } from "../components/ui/container-scroll-animation";
 import { EvervaultCard } from "../components/ui/evervault-card";
-import FeaturesSectionDemo1 from '../components/features-section-demo-1';
-import FeaturesSectionDemo2 from '../components/features-section-demo-2';
+import FeaturesSection1 from '../components/features-section-1';
+import FeaturesSection2 from '../components/features-section-2';
 import { Button } from '../components/ui/button';
 import { FaApple, FaMicrosoft } from "react-icons/fa";
 import Image from "next/image";
@@ -241,7 +241,7 @@ export default function Home() {
               Essential tools and capabilities for powerful web scraping
             </p>
           </div>
-          <FeaturesSectionDemo1 />
+          <FeaturesSection1 />
         </div>
       </section>
 
@@ -262,7 +262,7 @@ export default function Home() {
               Why developers and businesses choose Keradon
             </p>
           </div>
-          <FeaturesSectionDemo2 />
+          <FeaturesSection2 />
         </div>
       </section>
 
