@@ -27,45 +27,45 @@ export default function FeaturesSectionDemo() {
 
 const grid = [
   {
-    title: "HIPAA and SOC2 Compliant",
-    description:
-      "Our applications are HIPAA and SOC2 compliant, your data is safe with us, always.",
-  },
-  {
-    title: "Automated Social Media Posting",
-    description:
-      "Schedule and automate your social media posts across multiple platforms to save time and maintain a consistent online presence.",
-  },
-  {
-    title: "Advanced Analytics",
-    description:
-      "Gain insights into your social media performance with detailed analytics and reporting tools to measure engagement and ROI.",
-  },
-  {
-    title: "Content Calendar",
-    description:
-      "Plan and organize your social media content with an intuitive calendar view, ensuring you never miss a post.",
-  },
-  {
-    title: "Audience Targeting",
-    description:
-      "Reach the right audience with advanced targeting options, including demographics, interests, and behaviors.",
-  },
-  {
-    title: "Social Listening",
-    description:
-      "Monitor social media conversations and trends to stay informed about what your audience is saying and respond in real-time.",
-  },
-  {
-    title: "Customizable Templates",
-    description:
-      "Create stunning social media posts with our customizable templates, designed to fit your brand's unique style and voice.",
-  },
-  {
-    title: "Collaboration Tools",
-    description:
-      "Work seamlessly with your team using our collaboration tools, allowing you to assign tasks, share drafts, and provide feedback in real-time.",
-  },
+  title: "Simple Web Scraping",
+  description:
+    "Keradon simplifies web scraping by providing an easy-to-use interface for extracting data from websites without the need for complex coding and fancy libraries.",
+},
+{
+  title: "Automated Web Data Extraction",
+  description:
+    "Extract and structure data from websites automatically, reducing manual effort and enabling faster research and analysis workflows.",
+},
+{
+  title: "Advanced Data Analytics",
+  description:
+    "Uncover insights from large datasets with robust analytics tools, visualizations, and performance metrics tailored for data-driven decision-making.",
+},
+{
+  title: "LLM-Powered Insights",
+  description:
+    "Leverage the power of large language models to gain deeper insights from your data, enabling more informed decision-making.",
+},
+{
+  title: "Smart Data Filtering",
+  description:
+    "Target relevant data points using intelligent filters based on keywords, topics, domains, and other customizable parameters.",
+},
+{
+  title: "Legitimacy of Data",
+  description:
+    "Keradon Scraped Data is verified for accuracy and reliability, ensuring you can trust the insights derived from it.",
+},
+{
+  title: "Its simple and easy to use",
+  description:
+    "Keradon offers a user-friendly interface that simplifies the process of data extraction and analysis, making it accessible for everyone.",
+},
+{
+  title: "Business Intelligence",
+  description:
+    "Leverage advanced analytics and reporting tools to gain insights into your business performance and make data-driven decisions.",
+}
 ];
 
 export const Grid = ({
