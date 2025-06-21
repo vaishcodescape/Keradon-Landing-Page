@@ -7,19 +7,11 @@ import { ContainerScroll } from "../components/ui/container-scroll-animation";
 import { EvervaultCard } from "../components/ui/evervault-card";
 import FeaturesSectionDemo1 from '../components/features-section-demo-1';
 import FeaturesSectionDemo2 from '../components/features-section-demo-2';
-import Image from "next/image";
 import { Button } from '../components/ui/button';
+import { FaApple, FaMicrosoft } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Home() {
-  const scrollToFinalSection = () => {
-    const finalSection = document.getElementById('final-section');
-    if (finalSection) {
-      finalSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
 
   return (
     <main className="min-h-screen bg-black dark:bg-black">
@@ -40,25 +32,25 @@ export default function Home() {
                 Dive Deep into Data with Keradon
               </CardTitle>
               <CardDescription className="text-lg sm:text-xl md:text-2xl text-muted-foreground text-center mb-6 sm:mb-8 max-w-2xl mx-auto animate-slide-up animation-delay-200 dark:text-white/90 leading-relaxed px-2">
-                Navigate the vast ocean of data with our AI-powered search and visualization tool.
+                Scrape the vast trench of data with our AI-powered search and visualization tool.
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex justify-center px-4 sm:px-6 md:px-8 pb-6 sm:pb-8">
+            <CardContent className="flex justify-center gap-4 px-4 sm:px-6 md:px-8 pb-6 sm:pb-8">
               <Button 
                 variant="secondary"
                 size="lg"
                 className="bg-white text-black hover:bg-gray-100 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-                onClick={() => {
-                  const featuresSection = document.querySelector('#features-section');
-                  if (featuresSection) {
-                    featuresSection.scrollIntoView({ 
-                      behavior: 'smooth',
-                      block: 'start'
-                    });
-                  }
-                }}
               >
-                Learn More
+                <FaApple className="mr-2 h-4 w-4" />
+                Download for Mac
+              </Button>
+              <Button
+                variant="secondary"
+                size="lg"
+                className="bg-white text-black hover:bg-gray-100 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              >
+                <FaMicrosoft className="mr-2 h-4 w-4" />
+                Download for Windows
               </Button>
             </CardContent>
           </Card>
@@ -78,16 +70,19 @@ export default function Home() {
           <ContainerScroll
             titleComponent={
               <h2 className="text-4xl md:text-6xl font-bold mb-6 text-transparent bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text dark:from-white dark:via-primary dark:to-white">
-                Just Smart Web Scraping
+                It&apos;s Just Smart Web Scraping
               </h2>
             }
           >
-            <Image 
-              src="/.png" 
-              alt="Web scraping illustration"
-              fill
-              className="object-cover"
-            />
+            <div>
+              <Image 
+                src="/keradon_homepage.png" 
+                alt="Keradon" 
+                width={800}
+                height={600}
+                className="w-full h-full object-cover" 
+              />
+            </div>
           </ContainerScroll>
         </div>
       </section>
@@ -101,7 +96,7 @@ export default function Home() {
         
         <div className="flex flex-col items-center justify-center space-y-12 relative z-10">
           <div className="text-center max-w-4xl">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-foreground dark:text-white bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent dark:from-white dark:via-primary dark:to-white">
+            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-transparent dark:text-white bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent dark:from-white dark:via-primary dark:to-white">
               About Keradon
             </h3>
             <p className="text-lg md:text-xl text-muted-foreground dark:text-gray-300 leading-relaxed">
@@ -110,13 +105,15 @@ export default function Home() {
             </p>
           </div>
           <div className="transform hover:scale-105 transition-all duration-500">
-            <EvervaultCard text="Keradon" className="w-80 h-80" />
+            <EvervaultCard text="Data Scraping" className="w-80 h-80" />
           </div>
         </div>
       </section>
 
       {/* Hovering Cards Section */}
       <section className="py-20 px-4 relative overflow-hidden">
+        {/* Soft blurred background for depth */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-gray-100 to-background opacity-80 blur-2xl pointer-events-none"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-background via-gray-100 to-background opacity-95 animate-gradient-x dark:from-black dark:via-gray-900 dark:to-black"></div>
         
         {/* Floating Elements */}
@@ -133,12 +130,12 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
             {/* Card 1 */}
-            <div className="group relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative bg-background/90 backdrop-blur-xl border border-border rounded-3xl p-8 hover:border-border/50 transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(0,0,0,0.15)] dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50 shadow-xl">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
+            <div className="group relative transition-transform duration-300 hover:-translate-y-2 hover:scale-105">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-3xl blur-lg opacity-40 group-hover:opacity-70 transition duration-500"></div>
+              <div className="relative bg-white/90 dark:bg-black/90 backdrop-blur-xl border border-gray-200 dark:border-gray-800 rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 ease-in-out group-hover:ring-2 group-hover:ring-blue-400/40">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-300 shadow-lg">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
@@ -153,10 +150,10 @@ export default function Home() {
             </div>
 
             {/* Card 2 */}
-            <div className="group relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-teal-600 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative bg-background/90 backdrop-blur-xl border border-border rounded-3xl p-8 hover:border-border/50 transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(0,0,0,0.15)] dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50 shadow-xl">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
+            <div className="group relative transition-transform duration-300 hover:-translate-y-2 hover:scale-105">
+              <div className="absolute -inset-1 bg-gradient-to-r from-green-400/30 to-teal-400/30 rounded-3xl blur-lg opacity-40 group-hover:opacity-70 transition duration-500"></div>
+              <div className="relative bg-white/90 dark:bg-black/90 backdrop-blur-xl border border-gray-200 dark:border-gray-800 rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 ease-in-out group-hover:ring-2 group-hover:ring-green-400/40">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-300 shadow-lg">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -171,10 +168,10 @@ export default function Home() {
             </div>
 
             {/* Card 3 */}
-            <div className="group relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600 to-red-600 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative bg-background/90 backdrop-blur-xl border border-border rounded-3xl p-8 hover:border-border/50 transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(0,0,0,0.15)] dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50 shadow-xl">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
+            <div className="group relative transition-transform duration-300 hover:-translate-y-2 hover:scale-105">
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-400/30 to-red-400/30 rounded-3xl blur-lg opacity-40 group-hover:opacity-70 transition duration-500"></div>
+              <div className="relative bg-white/90 dark:bg-black/90 backdrop-blur-xl border border-gray-200 dark:border-gray-800 rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 ease-in-out group-hover:ring-2 group-hover:ring-orange-400/40">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-300 shadow-lg">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
@@ -210,39 +207,9 @@ export default function Home() {
         </div>
         
         <div className="w-full max-w-6xl relative z-10 animate-fade-in animation-delay-300 px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 w-full">
-            {/* Left Box */}
-            <Card className="bg-background/90 backdrop-blur-xl border-border hover:border-border/50 transition-all duration-300 dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50 shadow-xl hover:shadow-2xl">
-              <CardHeader className="px-4 sm:px-6 md:px-8 py-6 sm:py-8">
-                <CardTitle className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-slide-up text-foreground dark:text-white leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent dark:from-white dark:via-primary dark:to-white">
-                  Hunt for Insights
-                </CardTitle>
-                <CardDescription className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 animate-slide-up animation-delay-200 dark:text-white/90 leading-relaxed">
-                  Like a shark in the water, swiftly find and analyze the data you need.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="px-4 sm:px-6 md:px-8 pb-6 sm:pb-8">
-                <Button 
-                  variant="secondary"
-                  size="default"
-                  className="bg-white text-black hover:bg-gray-100"
-                  onClick={() => {
-                    const featuresSection = document.querySelector('#features-section');
-                    if (featuresSection) {
-                      featuresSection.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                      });
-                    }
-                  }}
-                >
-                  Learn More
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Right Box */}
-            <Card className="bg-background/90 backdrop-blur-xl border-border hover:border-border/50 transition-all duration-300 dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50 shadow-xl hover:shadow-2xl">
+          <div className="flex justify-center">
+            {/* Only the Use Data Analytics card remains */}
+            <Card className="bg-background/90 backdrop-blur-xl border-border hover:border-border/50 transition-all duration-300 dark:bg-black/90 dark:border-gray-800/30 dark:hover:border-gray-700/50 shadow-xl hover:shadow-2xl w-full max-w-xl">
               <CardHeader className="px-4 sm:px-6 md:px-8 py-6 sm:py-8">
                 <CardTitle className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-slide-up text-foreground dark:text-white leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent dark:from-white dark:via-primary dark:to-white">
                   Use Data Analytics to make your next project
@@ -252,14 +219,6 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="px-4 sm:px-6 md:px-8 pb-6 sm:pb-8">
-                <Button 
-                  variant="secondary"
-                  size="default"
-                  className="bg-white text-black hover:bg-gray-100"
-                  onClick={scrollToFinalSection}
-                >
-                  Get Started
-                </Button>
               </CardContent>
             </Card>
           </div>
@@ -326,11 +285,6 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col items-center gap-4 px-2 sm:px-4">
-            <Button variant="secondary" size="lg" className="bg-white text-black hover:bg-gray-100">
-              <a href="/download" className="text-inherit no-underline">
-                Download
-              </a>
-            </Button>
             <a href="/oss_program" className="text-muted-foreground hover:text-foreground transition animate-fade-in block text-base sm:text-lg underline dark:text-gray-300 dark:hover:text-white text-center hover:scale-105 transform transition-all duration-300">
               Interested in contributing?
             </a>
