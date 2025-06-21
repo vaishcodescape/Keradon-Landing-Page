@@ -1,8 +1,14 @@
 "use client"
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useId } from "react";
 
 export default function FeaturesSectionDemo() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className="py-20 lg:py-40">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-2 max-w-7xl mx-auto">
@@ -11,7 +17,7 @@ export default function FeaturesSectionDemo() {
             key={feature.title}
             className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden"
           >
-            <Grid size={20} />
+            <Grid size={20} mounted={mounted} />
             <p className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
               {feature.title}
             </p>
@@ -71,17 +77,26 @@ const grid = [
 export const Grid = ({
   pattern,
   size,
+  mounted,
 }: {
   pattern?: number[][];
   size?: number;
+  mounted?: boolean;
 }) => {
-  const p = pattern ?? [
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+  // Use deterministic patterns to prevent hydration mismatch
+  const defaultPatterns = [
+    [[7, 1], [8, 2], [9, 3], [10, 4], [11, 5]],
+    [[8, 2], [9, 3], [10, 4], [11, 5], [7, 1]],
+    [[9, 3], [10, 4], [11, 5], [7, 1], [8, 2]],
+    [[10, 4], [11, 5], [7, 1], [8, 2], [9, 3]],
+    [[11, 5], [7, 1], [8, 2], [9, 3], [10, 4]],
+    [[7, 2], [8, 3], [9, 4], [10, 5], [11, 1]],
+    [[8, 3], [9, 4], [10, 5], [11, 1], [7, 2]],
+    [[9, 4], [10, 5], [11, 1], [7, 2], [8, 3]],
   ];
+
+  const p = pattern ?? (mounted ? defaultPatterns[Math.floor(Math.random() * defaultPatterns.length)] : defaultPatterns[0]);
+  
   return (
     <div className="pointer-events-none absolute left-1/2 top-0  -ml-20 -mt-2 h-full w-full [mask-image:linear-gradient(white,transparent)]">
       <div className="absolute inset-0 bg-gradient-to-r  [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] dark:from-zinc-900/30 from-zinc-100/30 to-zinc-300/30 dark:to-zinc-900/30 opacity-100">

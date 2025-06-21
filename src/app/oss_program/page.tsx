@@ -101,9 +101,11 @@ export default function OSSProgram() {
                   <CardDescription className="text-white/80 group-hover:text-white/90 transition-colors duration-300 mb-4 dark:text-white/80 dark:group-hover:text-white/90">
                     Fork our repository and start working on issues or propose new features.
                   </CardDescription>
-                  <Button variant="default" size="lg" className="bg-white text-black hover:bg-gray-100">
-                    View on GitHub
-                  </Button>
+                  <a href="https://github.com/vaishcodescape/Keradon-Citadel.git" target="_blank" rel="noopener noreferrer">
+                    <Button variant="default" size="lg" className="bg-white text-black hover:bg-gray-100">
+                      View on GitHub
+                    </Button>
+                  </a>
                 </CardContent>
               </Card>
 

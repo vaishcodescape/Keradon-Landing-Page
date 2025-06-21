@@ -7,19 +7,10 @@ import { ContainerScroll } from "../components/ui/container-scroll-animation";
 import { EvervaultCard } from "../components/ui/evervault-card";
 import FeaturesSectionDemo1 from '../components/features-section-demo-1';
 import FeaturesSectionDemo2 from '../components/features-section-demo-2';
-import Image from "next/image";
 import { Button } from '../components/ui/button';
+import { FaApple, FaMicrosoft } from "react-icons/fa";
 
 export default function Home() {
-  const scrollToFinalSection = () => {
-    const finalSection = document.getElementById('final-section');
-    if (finalSection) {
-      finalSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
 
   return (
     <main className="min-h-screen bg-black dark:bg-black">
@@ -40,25 +31,25 @@ export default function Home() {
                 Dive Deep into Data with Keradon
               </CardTitle>
               <CardDescription className="text-lg sm:text-xl md:text-2xl text-muted-foreground text-center mb-6 sm:mb-8 max-w-2xl mx-auto animate-slide-up animation-delay-200 dark:text-white/90 leading-relaxed px-2">
-                Navigate the vast ocean of data with our AI-powered search and visualization tool.
+                Scrape the vast trench of data with our AI-powered search and visualization tool.
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex justify-center px-4 sm:px-6 md:px-8 pb-6 sm:pb-8">
+            <CardContent className="flex justify-center gap-4 px-4 sm:px-6 md:px-8 pb-6 sm:pb-8">
               <Button 
                 variant="secondary"
                 size="lg"
                 className="bg-white text-black hover:bg-gray-100 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-                onClick={() => {
-                  const featuresSection = document.querySelector('#features-section');
-                  if (featuresSection) {
-                    featuresSection.scrollIntoView({ 
-                      behavior: 'smooth',
-                      block: 'start'
-                    });
-                  }
-                }}
               >
-                Learn More
+                <FaApple className="mr-2 h-4 w-4" />
+                Download for Mac
+              </Button>
+              <Button
+                variant="secondary"
+                size="lg"
+                className="bg-white text-black hover:bg-gray-100 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              >
+                <FaMicrosoft className="mr-2 h-4 w-4" />
+                Download for Windows
               </Button>
             </CardContent>
           </Card>
@@ -78,16 +69,13 @@ export default function Home() {
           <ContainerScroll
             titleComponent={
               <h2 className="text-4xl md:text-6xl font-bold mb-6 text-transparent bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text dark:from-white dark:via-primary dark:to-white">
-                Just Smart Web Scraping
+                It's Just Smart Web Scraping
               </h2>
             }
           >
-            <Image 
-              src="/.png" 
-              alt="Web scraping illustration"
-              fill
-              className="object-cover"
-            />
+            <div>
+              <img src="/place_holder.png" alt="Keradon" className="w-full h-full object-cover" />
+            </div>
           </ContainerScroll>
         </div>
       </section>
@@ -101,7 +89,7 @@ export default function Home() {
         
         <div className="flex flex-col items-center justify-center space-y-12 relative z-10">
           <div className="text-center max-w-4xl">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-foreground dark:text-white bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent dark:from-white dark:via-primary dark:to-white">
+            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-transparent dark:text-white bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent dark:from-white dark:via-primary dark:to-white">
               About Keradon
             </h3>
             <p className="text-lg md:text-xl text-muted-foreground dark:text-gray-300 leading-relaxed">
@@ -110,7 +98,7 @@ export default function Home() {
             </p>
           </div>
           <div className="transform hover:scale-105 transition-all duration-500">
-            <EvervaultCard text="Keradon" className="w-80 h-80" />
+            <EvervaultCard text="Data Scraping" className="w-80 h-80" />
           </div>
         </div>
       </section>
@@ -222,22 +210,6 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="px-4 sm:px-6 md:px-8 pb-6 sm:pb-8">
-                <Button 
-                  variant="secondary"
-                  size="default"
-                  className="bg-white text-black hover:bg-gray-100"
-                  onClick={() => {
-                    const featuresSection = document.querySelector('#features-section');
-                    if (featuresSection) {
-                      featuresSection.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                      });
-                    }
-                  }}
-                >
-                  Learn More
-                </Button>
               </CardContent>
             </Card>
 
@@ -252,14 +224,6 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="px-4 sm:px-6 md:px-8 pb-6 sm:pb-8">
-                <Button 
-                  variant="secondary"
-                  size="default"
-                  className="bg-white text-black hover:bg-gray-100"
-                  onClick={scrollToFinalSection}
-                >
-                  Get Started
-                </Button>
               </CardContent>
             </Card>
           </div>
@@ -326,11 +290,6 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col items-center gap-4 px-2 sm:px-4">
-            <Button variant="secondary" size="lg" className="bg-white text-black hover:bg-gray-100">
-              <a href="/download" className="text-inherit no-underline">
-                Download
-              </a>
-            </Button>
             <a href="/oss_program" className="text-muted-foreground hover:text-foreground transition animate-fade-in block text-base sm:text-lg underline dark:text-gray-300 dark:hover:text-white text-center hover:scale-105 transform transition-all duration-300">
               Interested in contributing?
             </a>
