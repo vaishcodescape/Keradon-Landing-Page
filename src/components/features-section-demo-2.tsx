@@ -1,14 +1,14 @@
 "use client"
 import { cn } from "../lib/utils";
 import {
-  IconAdjustmentsBolt,
-  IconCloud,
+  IconBrain,
+  IconRocket,
   IconCurrencyDollar,
-  IconEaseInOut,
-  IconHeart,
-  IconHelp,
-  IconRouteAltLeft,
-  IconTerminal2,
+  IconDatabase,
+  IconGitFork,
+  IconSparkles,
+  IconBolt,
+  IconChartBar,
 } from "@tabler/icons-react";
 
 export default function FeaturesSectionDemo() {
@@ -17,46 +17,46 @@ export default function FeaturesSectionDemo() {
       title: "Built for data driven people",
       description:
         "Built for developers, data scientists, and business analysts.",
-      icon: <IconTerminal2 />,
+      icon: <IconBrain className="w-6 h-6" />,
     },
     {
       title: "Ease of use",
       description:
         "It's as easy as being bait for a shark, and as expensive as catching one.",
-      icon: <IconEaseInOut />,
+      icon: <IconRocket className="w-6 h-6" />,
     },
     {
       title: "Pricing like no other",
       description:
-        "Our prices are best in the market. No cap, no lock, no credit card required.",
-      icon: <IconCurrencyDollar />,
+        "Our prices are best in the market. No cap, no lock, no rip off.",
+      icon: <IconCurrencyDollar className="w-6 h-6" />,
     },
     {
       title: "100% Uptime guarantee",
       description: "We just cannot be taken down by anyone.",
-      icon: <IconCloud />,
+      icon: <IconDatabase className="w-6 h-6" />,
     },
     {
-      title: "Multi-tenant Architecture",
-      description: "You can simply share passwords instead of buying new seats",
-      icon: <IconRouteAltLeft />,
+      title: "Open Source",
+      description: "We are open source, and we love it.",
+      icon: <IconGitFork className="w-6 h-6" />,
     },
     {
       title: "Future Updates Coming Soon",
       description:
         "We have exciting new features and improvements in the pipeline.",
-      icon: <IconHelp />,
+      icon: <IconSparkles className="w-6 h-6" />,
     },
     {
       title: "Lightning-fast performance",
       description:
         "Experience blazing-fast data processing and analysis, enabling real-time insights and decision-making.",
-      icon: <IconAdjustmentsBolt />,
+      icon: <IconBolt className="w-6 h-6" />,
     },
     {
       title: "Data is everything",
       description: "Data is the backbone of every tech citadel, fall in love with it.",
-      icon: <IconHeart />,
+      icon: <IconChartBar className="w-6 h-6" />,
     },
   ];
   return (
