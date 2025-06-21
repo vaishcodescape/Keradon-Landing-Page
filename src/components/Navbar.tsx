@@ -5,18 +5,17 @@ import { Home } from 'lucide-react';
 import AnimatedLogo from './AnimatedLogo';
 import Link from 'next/link';
 import { ThemeSwitcher } from './theme-switcher';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation'
+import { Button } from './ui/button';
 import {
   Navbar as ResizableNavbar,
   NavBody,
-  NavItems,
   MobileNav,
   MobileNavHeader,
   MobileNavMenu,
   MobileNavToggle,
   NavbarButton,
-} from '@/components/ui/resizable-navbar';
+} from './ui/resizable-navbar';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -29,9 +28,7 @@ export default function Navbar() {
   ];
 
   const navItems = [
-    { name: 'Features', link: '/features' },
     { name: 'Pricing', link: '#' },
-    { name: 'About', link: '/about' },
     { name: 'Github', link: 'https://github.com/vaishcodescape/Keradon-Citadel.git' },
   ];
 
@@ -48,7 +45,7 @@ export default function Navbar() {
       {/* Floating Home Button */}
       <Button
         onClick={handleHomeClick}
-        className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-foreground text-background shadow-lg hover:bg-foreground/90 transition-all duration-300 hover:scale-110"
+        className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-white text-black shadow-lg hover:bg-gray-100 transition-all duration-300 hover:scale-110"
         size="icon"
       >
         <Home className="h-6 w-6" />

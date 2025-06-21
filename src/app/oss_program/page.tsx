@@ -1,8 +1,8 @@
 "use client";
 
 import { FaGithub, FaCode, FaUsers, FaTrophy, FaRocket, FaHandshake } from 'react-icons/fa';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
 
 export default function OSSProgram() {
   return (
