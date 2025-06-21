@@ -202,7 +202,7 @@ export default function Home() {
         
         {/* MacbookScroll Demo */}
         <div className="w-full relative z-10 mb-8 sm:mb-12 md:mb-16 px-2">
-          <MacbookScroll
+           <MacbookScroll
             src="/keradon_homepage.png"
             title="Experience the Power of Keradon"
             showGradient={true}

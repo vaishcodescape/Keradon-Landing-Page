@@ -14,15 +14,15 @@ import {
 export default function FeaturesSectionDemo() {
   const features = [
     {
-      title: "Built for developers",
+      title: "Built for data driven people",
       description:
-        "Built for engineers, developers, dreamers, thinkers and doers.",
+        "Built for developers, data scientists, and business analysts.",
       icon: <IconTerminal2 />,
     },
     {
       title: "Ease of use",
       description:
-        "It's as easy as using an Apple, and as expensive as buying one.",
+        "It's as easy as being bait for a shark, and as expensive as catching one.",
       icon: <IconEaseInOut />,
     },
     {
@@ -42,20 +42,20 @@ export default function FeaturesSectionDemo() {
       icon: <IconRouteAltLeft />,
     },
     {
-      title: "24/7 Customer Support",
+      title: "Future Updates Coming Soon",
       description:
-        "We are available a 100% of the time. Atleast our AI Agents are.",
+        "We have exciting new features and improvements in the pipeline.",
       icon: <IconHelp />,
     },
     {
-      title: "Money back guarantee",
+      title: "Lightning-fast performance",
       description:
-        "If you donot like EveryAI, we will convince you to like us.",
+        "Experience blazing-fast data processing and analysis, enabling real-time insights and decision-making.",
       icon: <IconAdjustmentsBolt />,
     },
     {
-      title: "And everything else",
-      description: "I just ran out of copy ideas. Accept my sincere apologies",
+      title: "Data is everything",
+      description: "Data is the backbone of every tech citadel, fall in love with it.",
       icon: <IconHeart />,
     },
   ];
