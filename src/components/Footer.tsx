@@ -20,7 +20,7 @@ export default function Footer() {
               <a href="#" className="text-white/60 hover:text-white transition-colors">
                 <FaTwitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-white/60 hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/company/keradon/" className="text-white/60 hover:text-white transition-colors">
                 <FaLinkedin className="h-5 w-5" />
               </a>
               <a href="#" className="text-white/60 hover:text-white transition-colors">
