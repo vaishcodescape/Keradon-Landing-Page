@@ -76,7 +76,7 @@ export default function Home() {
           >
             <div>
               <Image 
-                src="/keradon_homepage.png" 
+                src="/place_holder.png" 
                 alt="Keradon" 
                 width={800}
                 height={600}
@@ -200,7 +200,7 @@ export default function Home() {
         {/* MacbookScroll Demo */}
         <div className="w-full relative z-10 mb-4 sm:mb-6 md:mb-8 lg:mb-12 xl:mb-16 px-2">
            <MacbookScroll
-            src="/keradon_homepage.png"
+            src="/place_holder.png"
             title="Experience the Power of Keradon"
             showGradient={true}
           />
