@@ -10,18 +10,18 @@ export default function FeaturesSectionDemo() {
   }, []);
 
   return (
-    <div className="py-20 lg:py-40">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-2 max-w-7xl mx-auto">
+    <div className="py-8 sm:py-12 md:py-20 lg:py-40 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10 max-w-7xl mx-auto">
         {grid.map((feature) => (
           <div
             key={feature.title}
-            className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden"
+            className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl overflow-hidden hover:scale-105 transition-transform duration-300"
           >
             <Grid size={20} mounted={mounted} />
-            <p className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
+            <p className="text-sm sm:text-base font-bold text-neutral-800 dark:text-white relative z-20 leading-tight">
               {feature.title}
             </p>
-            <p className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
+            <p className="text-xs sm:text-sm md:text-base text-neutral-600 dark:text-neutral-400 mt-2 sm:mt-4 text-base font-normal relative z-20 leading-relaxed">
               {feature.description}
             </p>
           </div>

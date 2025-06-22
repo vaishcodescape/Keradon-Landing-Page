@@ -45,10 +45,10 @@ export default function Navbar() {
       {/* Floating Home Button */}
       <Button
         onClick={handleHomeClick}
-        className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-white text-black shadow-lg hover:bg-gray-100 transition-all duration-300 hover:scale-110"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white text-black shadow-lg hover:bg-gray-100 transition-all duration-300 hover:scale-110"
         size="icon"
       >
-        <Home className="h-6 w-6" />
+        <Home className="h-5 w-5 sm:h-6 sm:w-6" />
       </Button>
 
       {/* Desktop Navbar */}
@@ -56,7 +56,7 @@ export default function Navbar() {
         <NavBody>
           {/* Logo */}
            
-            <div className="w-14 h-14 flex items-center justify-center">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
               <AnimatedLogo />
             </div>
 
@@ -116,15 +116,15 @@ export default function Navbar() {
       <MobileNav>
         <MobileNavHeader>
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-4 group no-underline">
-            <div className="w-14 h-14 flex items-center justify-center">
+          <Link href="/" className="flex items-center space-x-3 sm:space-x-4 group no-underline">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
               <AnimatedLogo />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="text-foreground text-2xl font-bold tracking-wide group-hover:text-foreground/90 transition-all duration-300 leading-none">
+              <span className="text-foreground text-lg sm:text-2xl font-bold tracking-wide group-hover:text-foreground/90 transition-all duration-300 leading-none">
                 Keradon
               </span>
-              <span className="text-muted-foreground text-sm tracking-wide font-light leading-none mt-0.5">
+              <span className="text-muted-foreground text-xs sm:text-sm tracking-wide font-light leading-none mt-0.5">
                 Built to Hunt
               </span>
             </div>
@@ -147,7 +147,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.link}
-                className="text-neutral-600 dark:text-neutral-300 hover:text-neutral-800 dark:hover:text-white transition-all duration-300 text-lg font-medium"
+                className="text-neutral-600 dark:text-neutral-300 hover:text-neutral-800 dark:hover:text-white transition-all duration-300 text-base sm:text-lg font-medium"
                 onClick={handleMobileMenuClose}
               >
                 {item.name}
@@ -156,12 +156,12 @@ export default function Navbar() {
             
             {/* Programs in Mobile */}
             <div className="space-y-2">
-              <span className="text-neutral-600 dark:text-neutral-300 text-lg font-medium">Programs</span>
+              <span className="text-neutral-600 dark:text-neutral-300 text-base sm:text-lg font-medium">Programs</span>
               {programs.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block pl-4 text-neutral-600 dark:text-neutral-300 hover:text-neutral-800 dark:hover:text-white transition-all duration-300 text-base"
+                  className="block pl-4 text-neutral-600 dark:text-neutral-300 hover:text-neutral-800 dark:hover:text-white transition-all duration-300 text-sm sm:text-base"
                   onClick={handleMobileMenuClose}
                 >
                   {item.name}

@@ -2,6 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "../../lib/utils";
+import Image from "next/image";
 import {
   IconBrightnessDown,
   IconBrightnessUp,
@@ -45,9 +46,14 @@ export const MacbookScroll = ({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (window && window.innerWidth < 768) {
-      setIsMobile(true);
-    }
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const scaleX = useTransform(
@@ -60,7 +66,7 @@ export const MacbookScroll = ({
     [0, 0.3],
     [0.6, isMobile ? 1 : 1.5],
   );
-  const translate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
+  const translate = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 800 : 1500]);
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
   const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
@@ -68,17 +74,19 @@ export const MacbookScroll = ({
   return (
     <div
       ref={ref}
-      className="flex min-h-[200vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100 md:py-80"
+      className="flex min-h-[150vh] sm:min-h-[200vh] shrink-0 scale-[0.25] sm:scale-[0.35] md:scale-50 lg:scale-100 transform flex-col items-center justify-start py-0 [perspective:800px] md:py-80"
     >
-      <motion.h2
-        style={{
-          translateY: textTransform,
-          opacity: textOpacity,
-        }}
-        className="mb-20 text-center text-3xl font-bold text-neutral-800 dark:text-white"
-      >
-        
-      </motion.h2>
+      {title && (
+        <motion.h2
+          style={{
+            translateY: textTransform,
+            opacity: textOpacity,
+          }}
+          className="mb-10 sm:mb-20 text-center text-xl sm:text-2xl md:text-3xl font-bold text-neutral-800 dark:text-white px-4"
+        >
+          {title}
+        </motion.h2>
+      )}
       {/* Lid */}
       <div className="relative [perspective:800px]">
         <div
@@ -87,7 +95,7 @@ export const MacbookScroll = ({
             transformOrigin: "bottom",
             transformStyle: "preserve-3d",
           }}
-          className="relative h-[12rem] w-[32rem] rounded-2xl bg-[#010101] p-2"
+          className="relative h-[8rem] w-[20rem] sm:h-[10rem] sm:w-[24rem] md:h-[12rem] md:w-[32rem] rounded-xl sm:rounded-2xl bg-[#010101] p-2"
         >
           <div
             style={{
@@ -106,16 +114,28 @@ export const MacbookScroll = ({
             transformStyle: "preserve-3d",
             transformOrigin: "top",
           }}
-          className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
+          className="absolute inset-0 h-64 w-[20rem] sm:h-80 sm:w-[24rem] md:h-96 md:w-[32rem] rounded-xl sm:rounded-2xl bg-[#010101] p-2"
         >
-          <div className="absolute inset-0 rounded-lg bg-[#272729]" />
+          <div className="absolute inset-0 rounded-lg bg-[#272729] overflow-hidden">
+            {src && (
+              <div className="relative w-full h-full">
+                <Image
+                  src={src}
+                  alt="Macbook Screen"
+                  fill
+                  className="object-cover rounded-lg"
+                  sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, (max-width: 1024px) 512px, 800px"
+                />
+              </div>
+            )}
+          </div>
         </motion.div>
       </div>
       {/* Base area */}
-      <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200 dark:bg-[#272729]">
+      <div className="relative -z-10 h-[14rem] w-[20rem] sm:h-[18rem] sm:w-[24rem] md:h-[22rem] md:w-[32rem] overflow-hidden rounded-xl sm:rounded-2xl bg-gray-200 dark:bg-[#272729]">
         {/* above keyboard bar */}
-        <div className="relative h-10 w-full">
-          <div className="absolute inset-x-0 mx-auto h-4 w-[80%] bg-[#050505]" />
+        <div className="relative h-6 sm:h-8 md:h-10 w-full">
+          <div className="absolute inset-x-0 mx-auto h-3 sm:h-4 w-[80%] bg-[#050505]" />
         </div>
         <div className="relative flex">
           <div className="mx-auto h-full w-[10%] overflow-hidden">
@@ -129,11 +149,11 @@ export const MacbookScroll = ({
           </div>
         </div>
         <Trackpad />
-        <div className="absolute inset-x-0 bottom-0 mx-auto h-2 w-20 rounded-tl-3xl rounded-tr-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
+        <div className="absolute inset-x-0 bottom-0 mx-auto h-1 sm:h-2 w-12 sm:w-16 md:w-20 rounded-tl-2xl sm:rounded-tl-3xl rounded-tr-2xl sm:rounded-tr-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
         {showGradient && (
-          <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-white via-white to-transparent dark:from-black dark:via-black"></div>
+          <div className="absolute inset-x-0 bottom-0 z-50 h-20 sm:h-32 md:h-40 w-full bg-gradient-to-t from-white via-white to-transparent dark:from-black dark:via-black"></div>
         )}
-        {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
+        {badge && <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4">{badge}</div>}
       </div>
     </div>
   );
@@ -142,7 +162,7 @@ export const MacbookScroll = ({
 export const Trackpad = () => {
   return (
     <div
-      className="mx-auto my-1 h-32 w-[40%] rounded-xl"
+      className="mx-auto my-1 h-20 sm:h-24 md:h-32 w-[40%] rounded-lg sm:rounded-xl"
       style={{
         boxShadow: "0px 0px 1px 1px #00000020 inset",
       }}
@@ -154,352 +174,352 @@ export const Keypad = () => {
   return (
     <div className="mx-1 h-full [transform:translateZ(0)] rounded-md bg-[#050505] p-1 [will-change:transform]">
       {/* First Row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[1px] sm:mb-[2px] flex w-full shrink-0 gap-[1px] sm:gap-[2px]">
         <KBtn
-          className="w-10 items-end justify-start pb-[2px] pl-[4px]"
+          className="w-8 sm:w-10 items-end justify-start pb-[1px] sm:pb-[2px] pl-[2px] sm:pl-[4px]"
           childrenClassName="items-start"
         >
-          esc
+          <span className="text-[4px] sm:text-[5px]">esc</span>
         </KBtn>
         <KBtn>
-          <IconBrightnessDown className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F1</span>
+          <IconBrightnessDown className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
+          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F1</span>
         </KBtn>
         <KBtn>
-          <IconBrightnessUp className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F2</span>
+          <IconBrightnessUp className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
+          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F2</span>
         </KBtn>
         <KBtn>
-          <IconTable className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F3</span>
+          <IconTable className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
+          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F3</span>
         </KBtn>
         <KBtn>
-          <IconSearch className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F4</span>
+          <IconSearch className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
+          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F4</span>
         </KBtn>
         <KBtn>
-          <IconMicrophone className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F5</span>
+          <IconMicrophone className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
+          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F5</span>
         </KBtn>
         <KBtn>
-          <IconMoon className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F6</span>
+          <IconMoon className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
+          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F6</span>
         </KBtn>
         <KBtn>
-          <IconPlayerTrackPrev className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F7</span>
+          <IconPlayerTrackPrev className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
+          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F7</span>
         </KBtn>
         <KBtn>
-          <IconPlayerSkipForward className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F8</span>
+          <IconPlayerSkipForward className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
+          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F8</span>
         </KBtn>
         <KBtn>
-          <IconPlayerTrackNext className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F8</span>
+          <IconPlayerTrackNext className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
+          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F9</span>
         </KBtn>
         <KBtn>
-          <IconVolume3 className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F10</span>
+          <IconVolume3 className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
+          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F10</span>
         </KBtn>
         <KBtn>
-          <IconVolume2 className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F11</span>
+          <IconVolume2 className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
+          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F11</span>
         </KBtn>
         <KBtn>
-          <IconVolume className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F12</span>
+          <IconVolume className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
+          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F12</span>
         </KBtn>
         <KBtn>
-          <div className="h-4 w-4 rounded-full bg-gradient-to-b from-neutral-900 from-20% via-black via-50% to-neutral-900 to-95% p-px">
+          <div className="h-3 w-3 sm:h-4 sm:w-4 rounded-full bg-gradient-to-b from-neutral-900 from-20% via-black via-50% to-neutral-900 to-95% p-px">
             <div className="h-full w-full rounded-full bg-black" />
           </div>
         </KBtn>
       </div>
 
       {/* Second row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[1px] sm:mb-[2px] flex w-full shrink-0 gap-[1px] sm:gap-[2px]">
         <KBtn>
-          <span className="block">~</span>
-          <span className="mt-1 block">`</span>
+          <span className="block text-[4px] sm:text-[5px]">~</span>
+          <span className="mt-1 block text-[4px] sm:text-[5px]">`</span>
         </KBtn>
         <KBtn>
-          <span className="block">!</span>
-          <span className="block">1</span>
+          <span className="block text-[4px] sm:text-[5px]">!</span>
+          <span className="block text-[4px] sm:text-[5px]">1</span>
         </KBtn>
         <KBtn>
-          <span className="block">@</span>
-          <span className="block">2</span>
+          <span className="block text-[4px] sm:text-[5px]">@</span>
+          <span className="block text-[4px] sm:text-[5px]">2</span>
         </KBtn>
         <KBtn>
-          <span className="block">#</span>
-          <span className="block">3</span>
+          <span className="block text-[4px] sm:text-[5px]">#</span>
+          <span className="block text-[4px] sm:text-[5px]">3</span>
         </KBtn>
         <KBtn>
-          <span className="block">$</span>
-          <span className="block">4</span>
+          <span className="block text-[4px] sm:text-[5px]">$</span>
+          <span className="block text-[4px] sm:text-[5px]">4</span>
         </KBtn>
         <KBtn>
-          <span className="block">%</span>
-          <span className="block">5</span>
+          <span className="block text-[4px] sm:text-[5px]">%</span>
+          <span className="block text-[4px] sm:text-[5px]">5</span>
         </KBtn>
         <KBtn>
-          <span className="block">^</span>
-          <span className="block">6</span>
+          <span className="block text-[4px] sm:text-[5px]">^</span>
+          <span className="block text-[4px] sm:text-[5px]">6</span>
         </KBtn>
         <KBtn>
-          <span className="block">&</span>
-          <span className="block">7</span>
+          <span className="block text-[4px] sm:text-[5px]">&</span>
+          <span className="block text-[4px] sm:text-[5px]">7</span>
         </KBtn>
         <KBtn>
-          <span className="block">*</span>
-          <span className="block">8</span>
+          <span className="block text-[4px] sm:text-[5px]">*</span>
+          <span className="block text-[4px] sm:text-[5px]">8</span>
         </KBtn>
         <KBtn>
-          <span className="block">(</span>
-          <span className="block">9</span>
+          <span className="block text-[4px] sm:text-[5px]">(</span>
+          <span className="block text-[4px] sm:text-[5px]">9</span>
         </KBtn>
         <KBtn>
-          <span className="block">)</span>
-          <span className="block">0</span>
+          <span className="block text-[4px] sm:text-[5px]">)</span>
+          <span className="block text-[4px] sm:text-[5px]">0</span>
         </KBtn>
         <KBtn>
-          <span className="block">&mdash;</span>
-          <span className="block">_</span>
+          <span className="block text-[4px] sm:text-[5px]">&mdash;</span>
+          <span className="block text-[4px] sm:text-[5px]">_</span>
         </KBtn>
         <KBtn>
-          <span className="block">+</span>
-          <span className="block"> = </span>
+          <span className="block text-[4px] sm:text-[5px]">+</span>
+          <span className="block text-[4px] sm:text-[5px]"> = </span>
         </KBtn>
         <KBtn
-          className="w-10 items-end justify-end pr-[4px] pb-[2px]"
+          className="w-8 sm:w-10 items-end justify-end pr-[2px] sm:pr-[4px] pb-[1px] sm:pb-[2px]"
           childrenClassName="items-end"
         >
-          delete
+          <span className="text-[4px] sm:text-[5px]">delete</span>
         </KBtn>
       </div>
 
       {/* Third row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[1px] sm:mb-[2px] flex w-full shrink-0 gap-[1px] sm:gap-[2px]">
         <KBtn
-          className="w-10 items-end justify-start pb-[2px] pl-[4px]"
+          className="w-8 sm:w-10 items-end justify-start pb-[1px] sm:pb-[2px] pl-[2px] sm:pl-[4px]"
           childrenClassName="items-start"
         >
-          tab
+          <span className="text-[4px] sm:text-[5px]">tab</span>
         </KBtn>
         <KBtn>
-          <span className="block">Q</span>
+          <span className="block text-[4px] sm:text-[5px]">Q</span>
         </KBtn>
         <KBtn>
-          <span className="block">W</span>
+          <span className="block text-[4px] sm:text-[5px]">W</span>
         </KBtn>
         <KBtn>
-          <span className="block">E</span>
+          <span className="block text-[4px] sm:text-[5px]">E</span>
         </KBtn>
         <KBtn>
-          <span className="block">R</span>
+          <span className="block text-[4px] sm:text-[5px]">R</span>
         </KBtn>
         <KBtn>
-          <span className="block">T</span>
+          <span className="block text-[4px] sm:text-[5px]">T</span>
         </KBtn>
         <KBtn>
-          <span className="block">Y</span>
+          <span className="block text-[4px] sm:text-[5px]">Y</span>
         </KBtn>
         <KBtn>
-          <span className="block">U</span>
+          <span className="block text-[4px] sm:text-[5px]">U</span>
         </KBtn>
         <KBtn>
-          <span className="block">I</span>
+          <span className="block text-[4px] sm:text-[5px]">I</span>
         </KBtn>
         <KBtn>
-          <span className="block">O</span>
+          <span className="block text-[4px] sm:text-[5px]">O</span>
         </KBtn>
         <KBtn>
-          <span className="block">P</span>
+          <span className="block text-[4px] sm:text-[5px]">P</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`{`}</span>
-          <span className="block">{`[`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`{`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`[`}</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`}`}</span>
-          <span className="block">{`]`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`}`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`]`}</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`|`}</span>
-          <span className="block">{`\\`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`|`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`\\`}</span>
         </KBtn>
       </div>
 
       {/* Fourth Row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[1px] sm:mb-[2px] flex w-full shrink-0 gap-[1px] sm:gap-[2px]">
         <KBtn
-          className="w-[2.8rem] items-end justify-start pb-[2px] pl-[4px]"
+          className="w-[2.2rem] sm:w-[2.8rem] items-end justify-start pb-[1px] sm:pb-[2px] pl-[2px] sm:pl-[4px]"
           childrenClassName="items-start"
         >
-          caps lock
+          <span className="text-[3px] sm:text-[4px] md:text-[5px]">caps lock</span>
         </KBtn>
         <KBtn>
-          <span className="block">A</span>
+          <span className="block text-[4px] sm:text-[5px]">A</span>
         </KBtn>
         <KBtn>
-          <span className="block">S</span>
+          <span className="block text-[4px] sm:text-[5px]">S</span>
         </KBtn>
         <KBtn>
-          <span className="block">D</span>
+          <span className="block text-[4px] sm:text-[5px]">D</span>
         </KBtn>
         <KBtn>
-          <span className="block">F</span>
+          <span className="block text-[4px] sm:text-[5px]">F</span>
         </KBtn>
         <KBtn>
-          <span className="block">G</span>
+          <span className="block text-[4px] sm:text-[5px]">G</span>
         </KBtn>
         <KBtn>
-          <span className="block">H</span>
+          <span className="block text-[4px] sm:text-[5px]">H</span>
         </KBtn>
         <KBtn>
-          <span className="block">J</span>
+          <span className="block text-[4px] sm:text-[5px]">J</span>
         </KBtn>
         <KBtn>
-          <span className="block">K</span>
+          <span className="block text-[4px] sm:text-[5px]">K</span>
         </KBtn>
         <KBtn>
-          <span className="block">L</span>
+          <span className="block text-[4px] sm:text-[5px]">L</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`:`}</span>
-          <span className="block">{`;`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`:`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`;`}</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`"`}</span>
-          <span className="block">{`'`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`"`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`'`}</span>
         </KBtn>
         <KBtn
-          className="w-[2.85rem] items-end justify-end pr-[4px] pb-[2px]"
+          className="w-[2.2rem] sm:w-[2.85rem] items-end justify-end pr-[2px] sm:pr-[4px] pb-[1px] sm:pb-[2px]"
           childrenClassName="items-end"
         >
-          return
+          <span className="text-[3px] sm:text-[4px] md:text-[5px]">return</span>
         </KBtn>
       </div>
 
       {/* Fifth Row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[1px] sm:mb-[2px] flex w-full shrink-0 gap-[1px] sm:gap-[2px]">
         <KBtn
-          className="w-[3.65rem] items-end justify-start pb-[2px] pl-[4px]"
+          className="w-[2.8rem] sm:w-[3.65rem] items-end justify-start pb-[1px] sm:pb-[2px] pl-[2px] sm:pl-[4px]"
           childrenClassName="items-start"
         >
-          shift
+          <span className="text-[3px] sm:text-[4px] md:text-[5px]">shift</span>
         </KBtn>
         <KBtn>
-          <span className="block">Z</span>
+          <span className="block text-[4px] sm:text-[5px]">Z</span>
         </KBtn>
         <KBtn>
-          <span className="block">X</span>
+          <span className="block text-[4px] sm:text-[5px]">X</span>
         </KBtn>
         <KBtn>
-          <span className="block">C</span>
+          <span className="block text-[4px] sm:text-[5px]">C</span>
         </KBtn>
         <KBtn>
-          <span className="block">V</span>
+          <span className="block text-[4px] sm:text-[5px]">V</span>
         </KBtn>
         <KBtn>
-          <span className="block">B</span>
+          <span className="block text-[4px] sm:text-[5px]">B</span>
         </KBtn>
         <KBtn>
-          <span className="block">N</span>
+          <span className="block text-[4px] sm:text-[5px]">N</span>
         </KBtn>
         <KBtn>
-          <span className="block">M</span>
+          <span className="block text-[4px] sm:text-[5px]">M</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`<`}</span>
-          <span className="block">{`,`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`<`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`,`}</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`>`}</span>
-          <span className="block">{`.`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`>`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`.`}</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`?`}</span>
-          <span className="block">{`/`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`?`}</span>
+          <span className="block text-[4px] sm:text-[5px]">{`/`}</span>
         </KBtn>
         <KBtn
-          className="w-[3.65rem] items-end justify-end pr-[4px] pb-[2px]"
+          className="w-[2.8rem] sm:w-[3.65rem] items-end justify-end pr-[2px] sm:pr-[4px] pb-[1px] sm:pb-[2px]"
           childrenClassName="items-end"
         >
-          shift
+          <span className="text-[3px] sm:text-[4px] md:text-[5px]">shift</span>
         </KBtn>
       </div>
 
       {/* sixth Row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
-        <KBtn className="" childrenClassName="h-full justify-between py-[4px]">
+      <div className="mb-[1px] sm:mb-[2px] flex w-full shrink-0 gap-[1px] sm:gap-[2px]">
+        <KBtn className="" childrenClassName="h-full justify-between py-[2px] sm:py-[4px]">
           <div className="flex w-full justify-end pr-1">
-            <span className="block">fn</span>
+            <span className="block text-[3px] sm:text-[4px] md:text-[5px]">fn</span>
           </div>
           <div className="flex w-full justify-start pl-1">
-            <IconWorld className="h-[6px] w-[6px]" />
+            <IconWorld className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
           </div>
         </KBtn>
-        <KBtn className="" childrenClassName="h-full justify-between py-[4px]">
+        <KBtn className="" childrenClassName="h-full justify-between py-[2px] sm:py-[4px]">
           <div className="flex w-full justify-end pr-1">
-            <IconChevronUp className="h-[6px] w-[6px]" />
+            <IconChevronUp className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
           </div>
           <div className="flex w-full justify-start pl-1">
-            <span className="block">control</span>
+            <span className="block text-[3px] sm:text-[4px] md:text-[5px]">control</span>
           </div>
         </KBtn>
-        <KBtn className="" childrenClassName="h-full justify-between py-[4px]">
+        <KBtn className="" childrenClassName="h-full justify-between py-[2px] sm:py-[4px]">
           <div className="flex w-full justify-end pr-1">
-            <OptionKey className="h-[6px] w-[6px]" />
+            <OptionKey className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
           </div>
           <div className="flex w-full justify-start pl-1">
-            <span className="block">option</span>
+            <span className="block text-[3px] sm:text-[4px] md:text-[5px]">option</span>
           </div>
         </KBtn>
         <KBtn
-          className="w-8"
-          childrenClassName="h-full justify-between py-[4px]"
+          className="w-6 sm:w-8"
+          childrenClassName="h-full justify-between py-[2px] sm:py-[4px]"
         >
           <div className="flex w-full justify-end pr-1">
-            <IconCommand className="h-[6px] w-[6px]" />
+            <IconCommand className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
           </div>
           <div className="flex w-full justify-start pl-1">
-            <span className="block">command</span>
+            <span className="block text-[3px] sm:text-[4px] md:text-[5px]">command</span>
           </div>
         </KBtn>
-        <KBtn className="w-[8.2rem]"></KBtn>
+        <KBtn className="w-[6rem] sm:w-[8.2rem]"></KBtn>
         <KBtn
-          className="w-8"
-          childrenClassName="h-full justify-between py-[4px]"
+          className="w-6 sm:w-8"
+          childrenClassName="h-full justify-between py-[2px] sm:py-[4px]"
         >
           <div className="flex w-full justify-start pl-1">
-            <IconCommand className="h-[6px] w-[6px]" />
+            <IconCommand className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
           </div>
           <div className="flex w-full justify-start pl-1">
-            <span className="block">command</span>
+            <span className="block text-[3px] sm:text-[4px] md:text-[5px]">command</span>
           </div>
         </KBtn>
-        <KBtn className="" childrenClassName="h-full justify-between py-[4px]">
+        <KBtn className="" childrenClassName="h-full justify-between py-[2px] sm:py-[4px]">
           <div className="flex w-full justify-start pl-1">
-            <OptionKey className="h-[6px] w-[6px]" />
+            <OptionKey className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
           </div>
           <div className="flex w-full justify-start pl-1">
-            <span className="block">option</span>
+            <span className="block text-[3px] sm:text-[4px] md:text-[5px]">option</span>
           </div>
         </KBtn>
-        <div className="mt-[2px] flex h-6 w-[4.9rem] flex-col items-center justify-end rounded-[4px] p-[0.5px]">
-          <KBtn className="h-3 w-6">
-            <IconCaretUpFilled className="h-[6px] w-[6px]" />
+        <div className="mt-[1px] sm:mt-[2px] flex h-4 sm:h-6 w-[3.5rem] sm:w-[4.9rem] flex-col items-center justify-end rounded-[3px] sm:rounded-[4px] p-[0.5px]">
+          <KBtn className="h-2 w-4 sm:h-3 sm:w-6">
+            <IconCaretUpFilled className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
           </KBtn>
           <div className="flex">
-            <KBtn className="h-3 w-6">
-              <IconCaretLeftFilled className="h-[6px] w-[6px]" />
+            <KBtn className="h-2 w-4 sm:h-3 sm:w-6">
+              <IconCaretLeftFilled className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
             </KBtn>
-            <KBtn className="h-3 w-6">
-              <IconCaretDownFilled className="h-[6px] w-[6px]" />
+            <KBtn className="h-2 w-4 sm:h-3 sm:w-6">
+              <IconCaretDownFilled className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
             </KBtn>
-            <KBtn className="h-3 w-6">
-              <IconCaretRightFilled className="h-[6px] w-[6px]" />
+            <KBtn className="h-2 w-4 sm:h-3 sm:w-6">
+              <IconCaretRightFilled className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
             </KBtn>
           </div>
         </div>
@@ -522,13 +542,13 @@ export const KBtn = ({
   return (
     <div
       className={cn(
-        "[transform:translateZ(0)] rounded-[4px] p-[0.5px] [will-change:transform]",
+        "[transform:translateZ(0)] rounded-[3px] sm:rounded-[4px] p-[0.5px] [will-change:transform]",
         backlit && "bg-white/[0.2] shadow-xl shadow-white",
       )}
     >
       <div
         className={cn(
-          "flex h-6 w-6 items-center justify-center rounded-[3.5px] bg-[#0A090D]",
+          "flex h-4 w-4 sm:h-6 sm:w-6 items-center justify-center rounded-[2.5px] sm:rounded-[3.5px] bg-[#0A090D]",
           className,
         )}
         style={{
@@ -538,7 +558,7 @@ export const KBtn = ({
       >
         <div
           className={cn(
-            "flex w-full flex-col items-center justify-center text-[5px] text-neutral-200",
+            "flex w-full flex-col items-center justify-center text-[3px] sm:text-[4px] md:text-[5px] text-neutral-200",
             childrenClassName,
             backlit && "text-white",
           )}
@@ -553,11 +573,11 @@ export const KBtn = ({
 export const SpeakerGrid = () => {
   return (
     <div
-      className="mt-2 flex h-40 gap-[2px] px-[0.5px]"
+      className="mt-1 sm:mt-2 flex h-24 sm:h-32 md:h-40 gap-[1px] sm:gap-[2px] px-[0.5px]"
       style={{
         backgroundImage:
           "radial-gradient(circle, #08080A 0.5px, transparent 0.5px)",
-        backgroundSize: "3px 3px",
+        backgroundSize: "2px 2px",
       }}
     ></div>
   );
