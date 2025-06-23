@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { FaGithub, FaTwitter, FaLinkedin, FaDiscord } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaDiscord } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -16,9 +16,6 @@ export default function Footer() {
             <div className="flex space-x-3 sm:space-x-4">
               <a href="https://github.com/vaishcodescape/Keradon-Citadel.git" className="text-white/60 hover:text-white transition-colors">
                 <FaGithub className="h-4 w-4 sm:h-5 sm:w-5" />
-              </a>
-              <a href="#" className="text-white/60 hover:text-white transition-colors">
-                <FaTwitter className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>
               <a href="https://www.linkedin.com/company/keradon/" className="text-white/60 hover:text-white transition-colors">
                 <FaLinkedin className="h-4 w-4 sm:h-5 sm:w-5" />
