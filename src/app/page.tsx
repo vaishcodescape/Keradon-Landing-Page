@@ -36,22 +36,20 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-3 sm:px-4 md:px-6 lg:px-8 pb-4 sm:pb-6 md:pb-8">
-              <Button 
-                variant="secondary"
-                size="lg"
-                className="bg-white text-black hover:bg-gray-100 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 w-full sm:w-auto text-sm sm:text-base"
-              >
-                <FaApple className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                Download for Mac
-              </Button>
-              <Button
-                variant="secondary"
-                size="lg"
-                className="bg-white text-black hover:bg-gray-100 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 w-full sm:w-auto text-sm sm:text-base"
-              >
-                <FaMicrosoft className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                Download for Windows
-              </Button>
+              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl">
+                  <FaApple className="mr-2 h-4 w-4" />
+                  Download for Mac
+                </span>
+              </button>
+              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl">
+                  <FaMicrosoft className="mr-2 h-4 w-4" />
+                  Download for Windows
+                </span>
+              </button>
             </CardContent>
           </Card>
         </div>
