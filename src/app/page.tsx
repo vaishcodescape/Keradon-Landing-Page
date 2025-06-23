@@ -14,7 +14,7 @@ import Image from "next/image";
 export default function Home() {
 
   return (
-    <main className="min-h-screen bg-black dark:bg-black">
+    <main className="min-h-screen bg-black dark:bg-black border border-gray-200/20 dark:border-gray-800/30 rounded-none">
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center min-h-screen py-4 sm:py-8 md:py-12 lg:py-20 px-4 sm:px-6 md:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-gray-100 to-background opacity-95 animate-gradient-x dark:from-black dark:via-gray-900 dark:to-black"></div>
@@ -76,7 +76,7 @@ export default function Home() {
           >
             <div>
               <Image 
-                src="/place_holder.png" 
+                src="/webscraping.png" 
                 alt="Keradon" 
                 width={800}
                 height={600}
