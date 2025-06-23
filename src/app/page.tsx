@@ -7,11 +7,17 @@ import { ContainerScroll } from "../components/ui/container-scroll-animation";
 import { EvervaultCard } from "../components/ui/evervault-card";
 import FeaturesSection1 from '../components/features-section-1';
 import FeaturesSection2 from '../components/features-section-2';
-import { Button } from '../components/ui/button';
-import { FaApple, FaMicrosoft } from "react-icons/fa";
+import { FaApple, FaMicrosoft, FaChevronDown } from "react-icons/fa";
 import Image from "next/image";
+import { useState } from 'react';
 
 export default function Home() {
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const macVersions = [
+    { name: 'Apple Silicon (M1/M2/M3)', href: '#' },
+    { name: 'Intel Processor', href: '#' }
+  ];
 
   return (
     <main className="min-h-screen bg-black dark:bg-black border border-gray-200/20 dark:border-gray-800/30 rounded-none">
@@ -36,13 +42,41 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-3 sm:px-4 md:px-6 lg:px-8 pb-4 sm:pb-6 md:pb-8">
-              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl">
-                  <FaApple className="mr-2 h-4 w-4" />
-                  Download for Mac
-                </span>
-              </button>
+              {/* Mac Download Dropdown */}
+              <div className="relative">
+                <button 
+                  className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                  onMouseEnter={() => setActiveDropdown('mac')}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                  <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl">
+                    <FaApple className="mr-2 h-4 w-4" />
+                    Download for Mac
+                    <FaChevronDown className={`ml-2 h-4 w-4 transition-transform duration-300 ${activeDropdown === 'mac' ? 'rotate-180' : ''}`} />
+                  </span>
+                </button>
+                <div 
+                  className={`absolute left-0 mt-2 w-64 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-lg py-2 z-50
+                    transform transition-all duration-300 ease-out origin-top
+                    ${activeDropdown === 'mac' 
+                      ? 'opacity-100 scale-100 translate-y-0' 
+                      : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'}`}
+                  onMouseEnter={() => setActiveDropdown('mac')}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  {macVersions.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="block px-4 py-3 text-neutral-600 dark:text-neutral-300 hover:text-neutral-800 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all duration-300 text-sm text-left"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+              
               <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                 <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl">
