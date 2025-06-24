@@ -19,6 +19,13 @@ export default function Home() {
     { name: 'Intel Processor', href: '#' }
   ];
 
+
+  const handleDropdownLeave = () => {
+    setTimeout(() => {
+      setActiveDropdown(null);
+    }, 1000);
+  };
+
   return (
     <main className="min-h-screen bg-black dark:bg-black border border-gray-200/20 dark:border-gray-800/30 rounded-none">
       {/* Hero Section */}

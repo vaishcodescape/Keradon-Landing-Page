@@ -14,12 +14,12 @@ import {
   MobileNavHeader,
   MobileNavMenu,
   MobileNavToggle,
-  NavbarButton,
 } from './ui/resizable-navbar';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
   const router = useRouter();
 
   const programs = [
@@ -38,6 +38,21 @@ export default function Navbar() {
 
   const handleHomeClick = () => {
     router.push('/');
+  };
+
+  const handleDropdownEnter = () => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+      setDropdownTimeout(null);
+    }
+    setActiveDropdown('programs');
+  };
+
+  const handleDropdownLeave = () => {
+    const timeout = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 1000);
+    setDropdownTimeout(timeout);
   };
 
   return (
@@ -80,8 +95,8 @@ export default function Navbar() {
             <div className="relative">
               <button 
                 className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-                onMouseEnter={() => setActiveDropdown('programs')}
-                onMouseLeave={() => setActiveDropdown(null)}
+                onMouseEnter={handleDropdownEnter}
+                onMouseLeave={handleDropdownLeave}
               >
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                 <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white backdrop-blur-3xl">
@@ -90,13 +105,13 @@ export default function Navbar() {
                 </span>
               </button>
               <div 
-                className={`absolute left-0 mt-2 w-48 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-lg py-2 z-50
+                className={`absolute left-0 top-full mt-2 w-48 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-lg py-2 z-50
                   transform transition-all duration-300 ease-out origin-top
                   ${activeDropdown === 'programs' 
                     ? 'opacity-100 scale-100 translate-y-0' 
-                    : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'}`}
-                onMouseEnter={() => setActiveDropdown('programs')}
-                onMouseLeave={() => setActiveDropdown(null)}
+                    : 'opacity-0 scale-95 translate-y-0 pointer-events-none'}`}
+                onMouseEnter={handleDropdownEnter}
+                onMouseLeave={handleDropdownLeave}
               >
                 {programs.map((item) => (
                   <Link
