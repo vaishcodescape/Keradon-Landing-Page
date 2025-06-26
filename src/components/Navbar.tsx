@@ -71,7 +71,7 @@ export default function Navbar() {
         <NavBody>
           {/* Logo */}
            
-            <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
               <AnimatedLogo />
             </div>
 
@@ -82,10 +82,10 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.link}
-                className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                className="relative inline-flex h-8 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
               >
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white backdrop-blur-3xl">
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
                   {item.name}
                 </span>
               </Link>
@@ -94,12 +94,12 @@ export default function Navbar() {
             {/* Programs Dropdown */}
             <div className="relative">
               <button 
-                className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                className="relative inline-flex h-8 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
                 onMouseEnter={handleDropdownEnter}
                 onMouseLeave={handleDropdownLeave}
               >
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white backdrop-blur-3xl">
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
                   Programs
                   <FaChevronDown className={`ml-1 h-4 w-4 transition-transform duration-300 ${activeDropdown === 'programs' ? 'rotate-180' : ''}`} />
                 </span>
@@ -138,7 +138,7 @@ export default function Navbar() {
         <MobileNavHeader>
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 sm:space-x-4 group no-underline">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
               <AnimatedLogo />
             </div>
             <div className="flex flex-col justify-center">
