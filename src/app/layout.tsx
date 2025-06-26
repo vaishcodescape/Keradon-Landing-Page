@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ThemeProvider } from "../components/theme-provider";
-import { Background } from "../components/ui/background";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +36,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Background />
           <div className="relative flex flex-col min-h-screen">
             <Navbar />
             <main className="flex-grow">{children}</main>

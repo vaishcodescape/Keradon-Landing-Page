@@ -74,7 +74,7 @@ export const MacbookScroll = ({
   return (
     <div
       ref={ref}
-      className="flex min-h-[150vh] sm:min-h-[200vh] shrink-0 scale-[0.25] sm:scale-[0.35] md:scale-50 lg:scale-100 transform flex-col items-center justify-start py-0 [perspective:800px] md:py-80"
+      className="flex min-h-[100vh] sm:min-h-[150vh] md:min-h-[200vh] shrink-0 scale-[0.4] sm:scale-[0.5] md:scale-[0.7] lg:scale-100 transform flex-col items-center justify-start py-0 [perspective:800px] md:py-80"
     >
       {title && (
         <motion.h2
@@ -82,7 +82,7 @@ export const MacbookScroll = ({
             translateY: textTransform,
             opacity: textOpacity,
           }}
-          className="mb-10 sm:mb-20 text-center text-xl sm:text-2xl md:text-3xl font-bold text-neutral-800 dark:text-white px-4"
+          className="mb-6 sm:mb-10 md:mb-20 text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-neutral-800 dark:text-white px-3 sm:px-4"
         >
           {title}
         </motion.h2>
@@ -91,11 +91,11 @@ export const MacbookScroll = ({
       <div className="relative [perspective:800px]">
         <div
           style={{
-            transform: "perspective(800px) rotateX(-25deg) translateZ(0px)",
+            transform: isMobile ? "perspective(800px) rotateX(-15deg) translateZ(0px)" : "perspective(800px) rotateX(-25deg) translateZ(0px)",
             transformOrigin: "bottom",
             transformStyle: "preserve-3d",
           }}
-          className="relative h-[8rem] w-[20rem] sm:h-[10rem] sm:w-[24rem] md:h-[12rem] md:w-[32rem] rounded-xl sm:rounded-2xl bg-[#010101] p-2"
+          className="relative h-[6rem] w-[16rem] sm:h-[8rem] sm:w-[20rem] md:h-[10rem] md:w-[24rem] lg:h-[12rem] lg:w-[32rem] rounded-xl sm:rounded-2xl bg-[#010101] p-2"
         >
           <div
             style={{
@@ -109,12 +109,12 @@ export const MacbookScroll = ({
           style={{
             scaleX: scaleX,
             scaleY: scaleY,
-            rotateX: rotate,
+            rotateX: isMobile ? useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-15, -15, 0]) : rotate,
             translateY: translate,
             transformStyle: "preserve-3d",
             transformOrigin: "top",
           }}
-          className="absolute inset-0 h-64 w-[20rem] sm:h-80 sm:w-[24rem] md:h-96 md:w-[32rem] rounded-xl sm:rounded-2xl bg-[#010101] p-2"
+          className="absolute inset-0 h-48 w-[16rem] sm:h-64 sm:w-[20rem] md:h-80 md:w-[24rem] lg:h-96 lg:w-[32rem] rounded-xl sm:rounded-2xl bg-[#010101] p-2"
         >
           <div className="absolute inset-0 rounded-lg bg-[#272729] overflow-hidden">
             {src && (
@@ -124,7 +124,7 @@ export const MacbookScroll = ({
                   alt="Macbook Screen"
                   fill
                   className="object-cover rounded-lg"
-                  sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, (max-width: 1024px) 512px, 800px"
+                  sizes="(max-width: 640px) 256px, (max-width: 768px) 320px, (max-width: 1024px) 384px, 800px"
                 />
               </div>
             )}
@@ -132,10 +132,10 @@ export const MacbookScroll = ({
         </motion.div>
       </div>
       {/* Base area */}
-      <div className="relative -z-10 h-[14rem] w-[20rem] sm:h-[18rem] sm:w-[24rem] md:h-[22rem] md:w-[32rem] overflow-hidden rounded-xl sm:rounded-2xl bg-gray-200 dark:bg-[#272729]">
+      <div className="relative -z-10 h-[10rem] w-[16rem] sm:h-[14rem] sm:w-[20rem] md:h-[18rem] md:w-[24rem] lg:h-[22rem] lg:w-[32rem] overflow-hidden rounded-xl sm:rounded-2xl bg-gray-200 dark:bg-[#272729]">
         {/* above keyboard bar */}
-        <div className="relative h-6 sm:h-8 md:h-10 w-full">
-          <div className="absolute inset-x-0 mx-auto h-3 sm:h-4 w-[80%] bg-[#050505]" />
+        <div className="relative h-4 sm:h-6 md:h-8 lg:h-10 w-full">
+          <div className="absolute inset-x-0 mx-auto h-2 sm:h-3 md:h-4 w-[80%] bg-[#050505]" />
         </div>
         <div className="relative flex">
           <div className="mx-auto h-full w-[10%] overflow-hidden">
@@ -149,11 +149,11 @@ export const MacbookScroll = ({
           </div>
         </div>
         <Trackpad />
-        <div className="absolute inset-x-0 bottom-0 mx-auto h-1 sm:h-2 w-12 sm:w-16 md:w-20 rounded-tl-2xl sm:rounded-tl-3xl rounded-tr-2xl sm:rounded-tr-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
+        <div className="absolute inset-x-0 bottom-0 mx-auto h-1 sm:h-1 md:h-2 w-8 sm:w-12 md:w-16 lg:w-20 rounded-tl-xl sm:rounded-tl-2xl md:rounded-tl-3xl rounded-tr-xl sm:rounded-tr-2xl md:rounded-tr-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
         {showGradient && (
-          <div className="absolute inset-x-0 bottom-0 z-50 h-20 sm:h-32 md:h-40 w-full bg-gradient-to-t from-white via-white to-transparent dark:from-black dark:via-black"></div>
+          <div className="absolute inset-x-0 bottom-0 z-50 h-12 sm:h-20 md:h-32 lg:h-40 w-full bg-gradient-to-t from-white via-white to-transparent dark:from-black dark:via-black"></div>
         )}
-        {badge && <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4">{badge}</div>}
+        {badge && <div className="absolute bottom-1 sm:bottom-2 md:bottom-4 left-1 sm:left-2 md:left-4">{badge}</div>}
       </div>
     </div>
   );
@@ -162,7 +162,7 @@ export const MacbookScroll = ({
 export const Trackpad = () => {
   return (
     <div
-      className="mx-auto my-1 h-20 sm:h-24 md:h-32 w-[40%] rounded-lg sm:rounded-xl"
+      className="mx-auto my-1 h-12 sm:h-16 md:h-20 lg:h-24 xl:h-32 w-[40%] rounded-lg sm:rounded-xl"
       style={{
         boxShadow: "0px 0px 1px 1px #00000020 inset",
       }}
@@ -182,52 +182,52 @@ export const Keypad = () => {
           <span className="text-[4px] sm:text-[5px]">esc</span>
         </KBtn>
         <KBtn>
-          <IconBrightnessDown className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
-          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F1</span>
+          <IconBrightnessDown className="h-[3px] w-[3px] sm:h-[4px] sm:w-[4px] md:h-[6px] md:w-[6px]" />
+          <span className="mt-1 inline-block text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px]">F1</span>
         </KBtn>
         <KBtn>
-          <IconBrightnessUp className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
-          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F2</span>
+          <IconBrightnessUp className="h-[3px] w-[3px] sm:h-[4px] sm:w-[4px] md:h-[6px] md:w-[6px]" />
+          <span className="mt-1 inline-block text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px]">F2</span>
         </KBtn>
         <KBtn>
-          <IconTable className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
-          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F3</span>
+          <IconTable className="h-[3px] w-[3px] sm:h-[4px] sm:w-[4px] md:h-[6px] md:w-[6px]" />
+          <span className="mt-1 inline-block text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px]">F3</span>
         </KBtn>
         <KBtn>
-          <IconSearch className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
-          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F4</span>
+          <IconSearch className="h-[3px] w-[3px] sm:h-[4px] sm:w-[4px] md:h-[6px] md:w-[6px]" />
+          <span className="mt-1 inline-block text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px]">F4</span>
         </KBtn>
         <KBtn>
-          <IconMicrophone className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
-          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F5</span>
+          <IconMicrophone className="h-[3px] w-[3px] sm:h-[4px] sm:w-[4px] md:h-[6px] md:w-[6px]" />
+          <span className="mt-1 inline-block text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px]">F5</span>
         </KBtn>
         <KBtn>
-          <IconMoon className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
-          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F6</span>
+          <IconMoon className="h-[3px] w-[3px] sm:h-[4px] sm:w-[4px] md:h-[6px] md:w-[6px]" />
+          <span className="mt-1 inline-block text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px]">F6</span>
         </KBtn>
         <KBtn>
-          <IconPlayerTrackPrev className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
-          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F7</span>
+          <IconPlayerTrackPrev className="h-[3px] w-[3px] sm:h-[4px] sm:w-[4px] md:h-[6px] md:w-[6px]" />
+          <span className="mt-1 inline-block text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px]">F7</span>
         </KBtn>
         <KBtn>
-          <IconPlayerSkipForward className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
-          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F8</span>
+          <IconPlayerSkipForward className="h-[3px] w-[3px] sm:h-[4px] sm:w-[4px] md:h-[6px] md:w-[6px]" />
+          <span className="mt-1 inline-block text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px]">F8</span>
         </KBtn>
         <KBtn>
-          <IconPlayerTrackNext className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
-          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F9</span>
+          <IconPlayerTrackNext className="h-[3px] w-[3px] sm:h-[4px] sm:w-[4px] md:h-[6px] md:w-[6px]" />
+          <span className="mt-1 inline-block text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px]">F9</span>
         </KBtn>
         <KBtn>
-          <IconVolume3 className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
-          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F10</span>
+          <IconVolume3 className="h-[3px] w-[3px] sm:h-[4px] sm:w-[4px] md:h-[6px] md:w-[6px]" />
+          <span className="mt-1 inline-block text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px]">F10</span>
         </KBtn>
         <KBtn>
-          <IconVolume2 className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
-          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F11</span>
+          <IconVolume2 className="h-[3px] w-[3px] sm:h-[4px] sm:w-[4px] md:h-[6px] md:w-[6px]" />
+          <span className="mt-1 inline-block text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px]">F11</span>
         </KBtn>
         <KBtn>
-          <IconVolume className="h-[4px] w-[4px] sm:h-[6px] sm:w-[6px]" />
-          <span className="mt-1 inline-block text-[4px] sm:text-[5px]">F12</span>
+          <IconVolume className="h-[3px] w-[3px] sm:h-[4px] sm:w-[4px] md:h-[6px] md:w-[6px]" />
+          <span className="mt-1 inline-block text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px]">F12</span>
         </KBtn>
         <KBtn>
           <div className="h-3 w-3 sm:h-4 sm:w-4 rounded-full bg-gradient-to-b from-neutral-900 from-20% via-black via-50% to-neutral-900 to-95% p-px">
@@ -548,7 +548,7 @@ export const KBtn = ({
     >
       <div
         className={cn(
-          "flex h-4 w-4 sm:h-6 sm:w-6 items-center justify-center rounded-[2.5px] sm:rounded-[3.5px] bg-[#0A090D]",
+          "flex h-3 w-3 sm:h-4 sm:w-4 md:h-6 md:w-6 items-center justify-center rounded-[2.5px] sm:rounded-[3.5px] bg-[#0A090D]",
           className,
         )}
         style={{
@@ -558,7 +558,7 @@ export const KBtn = ({
       >
         <div
           className={cn(
-            "flex w-full flex-col items-center justify-center text-[3px] sm:text-[4px] md:text-[5px] text-neutral-200",
+            "flex w-full flex-col items-center justify-center text-[2px] sm:text-[3px] md:text-[4px] lg:text-[5px] text-neutral-200",
             childrenClassName,
             backlit && "text-white",
           )}
@@ -573,7 +573,7 @@ export const KBtn = ({
 export const SpeakerGrid = () => {
   return (
     <div
-      className="mt-1 sm:mt-2 flex h-24 sm:h-32 md:h-40 gap-[1px] sm:gap-[2px] px-[0.5px]"
+      className="mt-1 sm:mt-2 flex h-16 sm:h-20 md:h-24 lg:h-32 xl:h-40 gap-[1px] sm:gap-[2px] px-[0.5px]"
       style={{
         backgroundImage:
           "radial-gradient(circle, #08080A 0.5px, transparent 0.5px)",
