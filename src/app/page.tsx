@@ -73,7 +73,7 @@ export default function Home() {
           >
             <div>
               <Image 
-                src="/webscraping.png" 
+                src="/datashark.png" 
                 alt="Keradon" 
                 width={800}
                 height={600}
@@ -196,6 +196,7 @@ export default function Home() {
            <MacbookScroll
             title="Experience the Power of Keradon"
             showGradient={true}
+            src="/keradon_dashboard.png"
           />
         </div>
         
